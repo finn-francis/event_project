@@ -1,0 +1,16 @@
+@import 'colours';
+
+$colours:
+  ('white', $white),
+  ('light-grey', $light-grey),
+  ('black', $black);
+
+@each $name, $value in $colours {
+  .bg-#{$name} {
+    background-color: $value;
+  }
+  .c-#{$name} {
+    color: $value;
+  }
+}
+
