@@ -8,27 +8,31 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-    <header class="row bg-light-grey">
-      <h1 class="col-md-6 h2"><%= t('layout.title') %></h1>
-      <nav class="col-md-6" id="main-nav">
-        <ul class="list-inline pull-right">
-          <li class="list-inline-item h3">
-            <%= t('layout.home') %>
-          </li>
-          <li class="list-inline-item h3">
-            <%= t('layout.events') %>
-          </li>
-          <li class="list-inline-item h3">
-            <%= t('layout.options') %>
-          </li>
-        </ul>
-      </nav>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </header>
+  <div class="container-fluid bg-light-grey">
+    <div class="container">
+      <header class="row">
+        <h1 class="col-md-6 h2"><%= t('layout.title') %></h1>
+        <nav class="col-md-6" id="main-nav">
+          <ul class="list-inline pull-right">
+            <li class="list-inline-item h3">
+              <%= t('layout.home') %>
+            </li>
+            <li class="list-inline-item h3">
+              <%= t('layout.events') %>
+            </li>
+            <li class="list-inline-item h3">
+              <%= t('layout.options') %>
+            </li>
+          </ul>
+        </nav>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </header>
+    </div>
   </div>
 
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>

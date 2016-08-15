@@ -1,6 +1,11 @@
-<%# <% binding.pry %1> %>
-<%= form_for @event do |f| %>
-  <%= f.label t('event.new.title') %>
-  <%= f.text_field :title %>
-  <%= f.submit t('event.new.create') %>
-<% end %>
+<div class="row #new-event-form">
+  <%= form_for @event do |f| %>
+    <div class="col-md-7 form-group">
+      <%= f.label 'Title:', class: 'h4' %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="col-md-7 form-group">
+      <%= f.submit t('event.new.create'), class: 'btn btn-default pull-left' %>
+    </div>
+  <% end %>
+</div>
