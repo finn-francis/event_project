@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  layout:
+    title: Event Project
+    home: Home
+    events: Events
+    profile: Options
   event:
     new:
       create: Create Event
