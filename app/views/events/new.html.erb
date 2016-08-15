@@ -1,9 +1,18 @@
 <div class="row #new-event-form">
+
+  <%# %%%TODO Add validation to the form inputs to make sure they are filled in properly %>
+
   <%= form_for @event do |f| %>
     <div class="col-md-7 form-group">
-      <%= f.label 'Title:', class: 'h4' %>
+      <%= f.label [t('event.new.title'), ':'].join, class: 'h4' %>
       <%= f.text_field :title, class: 'form-control' %>
     </div>
+
+    <div class="col-md-7 form-group">
+      <%= f.label [t('event.new.description'), ':'].join, class: 'h4' %>
+      <%= f.text_field :description, class: 'form-control' %>
+    </div>
+
     <div class="col-md-7 form-group">
       <%= f.submit t('event.new.create'), class: 'btn btn-default pull-left' %>
     </div>

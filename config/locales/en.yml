@@ -28,4 +28,5 @@ en:
   event:
     new:
       create: Create Event
-      title: Event Title
+      title: Title
+      description: Description
