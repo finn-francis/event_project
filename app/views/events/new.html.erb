@@ -1,0 +1,6 @@
+<%# <% binding.pry %1> %>
+<%= form_for @event do |f| %>
+  <%= f.label t('event.new.title') %>
+  <%= f.text_field :title %>
+  <%= f.submit t('event.new.create') %>
+<% end %>
