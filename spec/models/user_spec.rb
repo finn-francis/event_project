@@ -1,5 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @user = User.create!(
+      email: Faker::Internet.email,
+      password: 'password',
+      password_confirmation: 'password'
+    )
+  end
+
+  describe 'A user creates an event' do
+    before do
+      @event = @user.events.create!
+    end
+
+    it 'should create a new event' do
+      expect(Event.count).to eq(1)
+      expect(@user.events.first).to eq(@event)
+      expect(@event.valid?).to eq(true)
+    end
+
+    it 'should contain the users id as "organiser_id"' do
+      expect(@event.organiser_id).to eq(@user.id)
+    end
+  end
 end
