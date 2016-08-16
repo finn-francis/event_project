@@ -5,17 +5,7 @@ Feature: Event
       And they are signed in
       And they are on the new event page
 
-  Scenario: A User enters the name of a new event
-    When they fill in the new event form
-      And they click the "Create Event" button
-    Then they should be redirected to the event page
-
-  Scenario: A User enters the description of a new event
-    When they fill in the new event form
-      And they click the "Create Event" button
-    Then they should be redirected to the event page
-
-  Scenario: A user enters the location of a new event
+  Scenario: A User creates a new event
     When they fill in the new event form
       And they click the "Create Event" button
     Then they should be redirected to the event page

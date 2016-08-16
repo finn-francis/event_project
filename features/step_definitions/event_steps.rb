@@ -20,21 +20,15 @@ end
 When(/^they fill in the new event form$/) do
   @event_description = Faker::Lorem.paragraph
   @event_title = Faker::Name.title
-
-  fill_in 'event_title', with: @event_title
-  fill_in 'event_description', with: @event_description
-  step "they fill in the address fields"
-end
-
-When(/^they fill in the address fields$/) do
   @event_country = 'United Kingdom'
   @event_city = 'Hoddesdon'
   @event_postcode = 'EN11 8BX'
 
+  fill_in 'event_title', with: @event_title
+  fill_in 'event_description', with: @event_description
   fill_in 'event_country', with: @event_country
   fill_in 'event_city', with: @event_city
   fill_in 'event_postcode', with: @event_postcode
-
 end
 
 Then(/^they should be redirected to the event page$/) do
