@@ -1,0 +1,22 @@
+<li class="row">
+  <div class="col-md-4">
+    <p>
+      <%= invite.inviter.email %>
+      invited you to
+      <%= invite.event.title %>
+    </p>
+  </div>
+
+  <div class="col-md-6">
+    <p><%= invite.event.title %></p>
+    <p><%= invite.event.description %></p>
+  </div>
+
+  <div class="col-md-2">
+    <%= form_for invite do |f| %>
+      <%= f.button t('buttons.accept'), value: 'true' %>
+      <%= f.button t('buttons.decline'), value: 'false' %>
+    <% end %>
+  </div>
+
+</li>

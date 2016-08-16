@@ -1,6 +1,9 @@
 class Event < ActiveRecord::Base
   belongs_to :organiser, class_name: 'User'
 
+  has_many :invites, foreign_key: :event_id
+  has_many :invited, class_name: 'User', through: :invites
+
   validates :organiser_id, presence: :true
   validates :title, presence: :true
   validates :description, presence: :true

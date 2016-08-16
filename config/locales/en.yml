@@ -25,6 +25,7 @@ en:
     home: Home
     events: Events
     profile: Options
+    invite: Invites
   event:
     new:
       create: Create Event
@@ -33,3 +34,7 @@ en:
       country: Country
       city: City/Town
       postcode: Postcode
+  buttons:
+    accept: Accept
+    decline: Decline
+

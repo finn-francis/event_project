@@ -17,11 +17,19 @@
             <li class="list-inline-item h3">
               <%= t('layout.home') %>
             </li>
+
             <li class="list-inline-item h3">
               <%= t('layout.events') %>
             </li>
+
             <li class="list-inline-item h3">
               <%= t('layout.options') %>
+            </li>
+
+            <li class="list-inline-item h3">
+              <% if @current_user %>
+                <%= link_to t('layout.invite'), ['/users/', @current_user.id, '/invites'].join , html_options = { class: 'btn btn-default' } %>
+              <% end %>
             </li>
           </ul>
         </nav>
