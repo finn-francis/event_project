@@ -14,3 +14,8 @@ Feature: Event
     When they fill in the new event form
       And they click the "Create Event" button
     Then they should be redirected to the event page
+
+  Scenario: A user enters the location of a new event
+    When they fill in the new event form
+      And they click the "Create Event" button
+    Then they should be redirected to the event page

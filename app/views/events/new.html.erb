@@ -2,19 +2,34 @@
 
   <%# %%%TODO Add validation to the form inputs to make sure they are filled in properly %>
 
-  <%= form_for @event do |f| %>
-    <div class="col-md-7 form-group">
+  <%= form_for @event, html: {class: 'col-md-7'} do |f| %>
+    <div class="form-group">
       <%= f.label [t('event.new.title'), ':'].join, class: 'h4' %>
       <%= f.text_field :title, class: 'form-control' %>
     </div>
 
-    <div class="col-md-7 form-group">
+    <div class="form-group">
       <%= f.label [t('event.new.description'), ':'].join, class: 'h4' %>
-      <%= f.text_field :description, class: 'form-control' %>
+      <%= f.text_area :description, class: 'form-control' %>
     </div>
 
-    <div class="col-md-7 form-group">
-      <%= f.submit t('event.new.create'), class: 'btn btn-default pull-left' %>
+    <div class="form-group">
+      <%= f.label [t('event.new.country'), ':'].join, class: 'h4' %>
+      <%= f.text_field :country, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label [t('event.new.city'), ':'].join, class: 'h4' %>
+      <%= f.text_field :city, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label [t('event.new.postcode'), ':'].join, class: 'h4' %>
+      <%= f.text_field :postcode, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit t('event.new.create'), class: 'btn btn-default pull-right' %>
     </div>
   <% end %>
 </div>

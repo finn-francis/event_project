@@ -30,3 +30,6 @@ en:
       create: Create Event
       title: Title
       description: Description
+      country: Country
+      city: City/Town
+      postcode: Postcode

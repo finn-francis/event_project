@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 gem 'devise'
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -11,7 +11,13 @@ RSpec.describe User, type: :model do
 
   describe 'A user creates an event' do
     before do
-      @event = @user.events.create!
+      @event = @user.events.create!(
+        title: Faker::Internet.name,
+        description: Faker::Lorem.paragraph,
+        country: "United Kingdom",
+        city: "Hoddesdon",
+        postcode: "EN11 8BX"
+      )
     end
 
     it 'should create a new event' do
