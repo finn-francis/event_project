@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @attendees = @event.attending
   end
 
   private

@@ -7,6 +7,10 @@
 
   <div id="map" class="col-md-8" data-latitude="<%= @event.latitude %>" data-longitude="<%= @event.longitude %>"></div>
 
+  <div id="attending" class="col-md-4 dft-border by-white">
+    <%= render partial: "attendee", collection: @attendees %>
+  </div>
+
   <div id="event-info" class="col-md-8 col-md-offset-4 dft-border bg-white m-t">
     <h3><%= @event.title %></h3>
     <hr>
