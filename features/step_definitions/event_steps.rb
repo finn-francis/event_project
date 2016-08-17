@@ -23,9 +23,11 @@ When(/^they fill in the new event form$/) do
   @event_country = 'United Kingdom'
   @event_city = 'Hoddesdon'
   @event_postcode = 'EN11 8BX'
+  @event_url = Faker::Avatar.image
 
   fill_in 'event_title', with: @event_title
   fill_in 'event_description', with: @event_description
+  fill_in 'event_image_url', with: @event_url
   fill_in 'event_country', with: @event_country
   fill_in 'event_city', with: @event_city
   fill_in 'event_postcode', with: @event_postcode

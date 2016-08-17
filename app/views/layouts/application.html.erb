@@ -8,38 +8,37 @@
 </head>
 
 <body>
-  <div class="container-fluid bg-light-grey">
-    <div class="container">
-      <header class="row">
-        <h1 class="col-md-6 h2"><%= t('layout.title') %></h1>
-        <nav class="col-md-6" id="main-nav">
-          <ul class="list-inline pull-right">
-            <li class="list-inline-item h3">
-              <%= t('layout.home') %>
-            </li>
+  <div id="main-header" class="container-fluid bg-white">
+    <header class="row">
+      <h1 class="col-md-6 h2"><%= t('layout.title') %></h1>
+      <nav class="col-md-6" id="main-nav">
+        <ul class="list-inline pull-right">
+          <li class="list-inline-item h3">
+            <%= t('layout.home') %>
+          </li>
 
-            <li class="list-inline-item h3">
-              <%= t('layout.events') %>
-            </li>
+          <li class="list-inline-item h3">
+            <%= t('layout.events') %>
+          </li>
 
-            <li class="list-inline-item h3">
-              <%= t('layout.options') %>
-            </li>
+          <li class="list-inline-item h3">
+            <%= t('layout.options') %>
+          </li>
 
-            <li class="list-inline-item h3">
-              <% if @current_user %>
-                <%= link_to t('layout.invite'), ['/users/', @current_user.id, '/invites'].join , html_options = { class: 'btn btn-default' } %>
-              <% end %>
-            </li>
-          </ul>
-        </nav>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </header>
-    </div>
+          <li class="list-inline-item h3">
+            <% if @current_user %>
+              <%= link_to t('layout.invite'), ['/users/', @current_user.id, '/invites'].join , html_options = { class: 'btn btn-default' } %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </header>
+    <hr>
   </div>
 
-  <div class="container">
+  <div class="container-fluid">
     <%= yield %>
   </div>
 </body>

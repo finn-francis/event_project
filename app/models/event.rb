@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  belongs_to :organiser, class_name: 'User'
+  belongs_to :organiser, class_name: 'User', inverse_of: :events
 
   has_many :invites, foreign_key: :event_id
   has_many :invited, class_name: 'User', through: :invites

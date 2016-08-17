@@ -31,6 +31,7 @@ en:
       create: Create Event
       title: Title
       description: Description
+      image: Image Url
       country: Country
       city: City/Town
       postcode: Postcode

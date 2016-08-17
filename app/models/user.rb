@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :events, foreign_key: :organiser_id
+  has_many :events, foreign_key: :organiser_id, inverse_of: :organiser
 
   has_many :invites, class_name: 'Invite', foreign_key: 'inviter_id'
   has_many :invited, class_name: 'User', through: :invites

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816175644) do
+ActiveRecord::Schema.define(version: 20160817094045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
     t.integer  "organiser_id"
     t.string   "title"
     t.text     "description"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160816175644) do
     t.decimal  "latitude"
     t.decimal  "longitude"
     t.string   "postcode"
+    t.string   "image_url",    default: "/assets/default-event.jpg"
   end
 
   create_table "invites", force: :cascade do |t|
