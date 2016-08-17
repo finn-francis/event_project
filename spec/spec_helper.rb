@@ -14,7 +14,7 @@
 
 # Test coverage
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start 'rails'
 
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
