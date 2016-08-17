@@ -14,6 +14,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'devise'
 gem 'geocoder'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.5'
