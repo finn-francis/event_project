@@ -2,8 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   before do
-    @event = Event.create!(
-      title: Faker::Internet.name,
+    @user_one = User.create!(
+      email: Faker::Internet.email,
+      password: 'password',
+      password_confirmation: 'password'
+    )
+
+    @event = @user_one.events.create!(
+      title: Faker::Company.name,
       description: Faker::Lorem.paragraph,
       country: "United Kingdom",
       city: "Hoddesdon",

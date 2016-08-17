@@ -4,6 +4,9 @@ class Event < ActiveRecord::Base
   has_many :invites, foreign_key: :event_id
   has_many :invited, class_name: 'User', through: :invites
 
+  has_many :attendances
+  has_many :attending, class_name: 'User', through: :attendances, source: :attending
+
   validates :organiser_id, presence: :true
   validates :title, presence: :true
   validates :description, presence: :true
@@ -13,10 +16,16 @@ class Event < ActiveRecord::Base
 
   geocoded_by :geocoder_input
   after_validation :geocode
+  after_create :create_attendance
 
   private
 
   def geocoder_input
     thing = [self.country, self.city, self.postcode].join(", ")
   end
+
+  def create_attendance
+    self.attendances.create(user_id: self.organiser.id, event_id: self.id)
+  end
+
 end

@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
 
   has_many :events, foreign_key: :organiser_id, inverse_of: :organiser
 
+  has_many :attendances, foreign_key: :user_id
+  has_many :attending, class_name: 'Event', through: :attendances, source: :event
+
   has_many :invites, class_name: 'Invite', foreign_key: 'inviter_id'
   has_many :invited, class_name: 'User', through: :invites
 

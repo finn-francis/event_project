@@ -21,16 +21,15 @@ RSpec.describe Invite, type: :model do
       city: 'Hoddesdon',
       postcode: 'EN11 8BX'
     )
+
+    @invite_one = @user_two.invites.create!(
+      event: @event,
+      invited: @user_one
+    )
+
   end
 
   describe 'A user creates an invite' do
-    before do
-      @invite_one = @user_two.invites.create!(
-        event: @event,
-        invited: @user_one
-      )
-    end
-
     it 'should be available through both the inviter and the invited' do
       expect(@user_two.invites).to include(@invite_one)
       expect(@user_one.invited_to).to include(@invite_one)
@@ -47,4 +46,17 @@ RSpec.describe Invite, type: :model do
       expect(@event.invited.first).to eq(@user_one)
     end
   end
+
+  describe "A User accepts an invite" do
+    before do
+      @invite_one.update accepted: true
+      @attendance = @user_one.attendances.first
+    end
+
+    it "should create a new attendance for the user" do
+      expect(@attendance.event).to eq(@event)
+    end
+
+  end
+
 end
