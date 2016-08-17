@@ -1,5 +1,5 @@
 <h3><%= @event.title %></h1>
 <h3><%= @event.description %></h1>
 <div id="map" data-latitude="<%= @event.latitude %>" data-longitude="<%= @event.longitude %>"></div>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_maps_api_key %>&callback=initMap">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap">
 </script>
