@@ -59,3 +59,9 @@ Then(/^they will be redirected to the event$/) do
   expect(page).to have_content(@event.title)
   expect(page).to have_content(@event.description)
 end
+
+Then(/^they will be redirected to the invites page$/) do
+  visit ['/users/', @user_one.id, '/invites'].join
+  expect(page).to_not have_content(@user_two.email)
+end
+

@@ -10,6 +10,8 @@ class Invite < ActiveRecord::Base
 
   after_save :create_attendance
 
+  scope :pending_invites, proc { where(accepted: nil) }
+
   private
 
   def create_attendance
