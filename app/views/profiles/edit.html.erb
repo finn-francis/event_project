@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for [@current_user, @profile], html: {class: 'col-md-7'} do |f| %>
+  <%= form_for [@current_user, @profile], html: {class: 'col-md-4 col-md-offset-1'} do |f| %>
     <div class="form-group">
       <%= f.label [t('profile.first_name')].join, class: 'h4' %>
       <%= f.text_field :first_name, class: 'form-control' %>

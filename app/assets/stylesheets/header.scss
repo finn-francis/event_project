@@ -1,5 +1,12 @@
 @import "colours";
 
+#main-header {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
 #main-nav {
   li:hover {
     color: $lighter-grey;
