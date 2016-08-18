@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :profile
+
   has_many :events, foreign_key: :organiser_id, inverse_of: :organiser
 
   has_many :attendances, foreign_key: :user_id
@@ -17,4 +19,13 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :password, presence: true
   validates :password, presence: true
+
+  after_create :create_profile
+
+  private
+
+  def create_profile
+    Profile.create user: self
+  end
+
 end

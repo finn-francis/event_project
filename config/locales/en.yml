@@ -25,6 +25,7 @@ en:
     home: Home
     events: Events
     profile: Options
+    edit_profile: Edit Profile
     invite: Invites
   event:
     new:
@@ -38,4 +39,8 @@ en:
   buttons:
     accept: Accept
     decline: Decline
+  profile:
+    first_name: First Name
+    last_name: Last Name
+    save: Save
 

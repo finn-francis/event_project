@@ -21,8 +21,16 @@
             <%= t('layout.events') %>
           </li>
 
-          <li class="list-inline-item h3">
-            <%= t('layout.options') %>
+          <li class="list-inline-item dropdown h3">
+            <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= t('layout.options') %>
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <% if @current_user %>
+                <%= link_to t('layout.edit_profile'), ['/users/', @current_user.id, '/profile/edit'].join %></a>
+              <% end %>
+            </div>
           </li>
 
           <li class="list-inline-item h3">
