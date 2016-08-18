@@ -5,7 +5,6 @@ Feature: Profile
       And they fill in their details
     When they click the "Sign up" button
 
-  @wip
   Scenario: A User edits their name on their profile
     Given the user clicks the "Edit Profile" link
     When they enter their profile details

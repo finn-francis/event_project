@@ -43,5 +43,7 @@ en:
     first_name: First Name
     last_name: Last Name
     description: Description
+    country: Country
+    city: City/Town
     save: Save
 
