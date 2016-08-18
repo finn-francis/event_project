@@ -3,6 +3,8 @@
 $colours:
   ('white', $white),
   ('light-grey', $light-grey),
+  ('lighter-grey', $lighter-grey),
+  ('header-green', $header-green),
   ('black', $black);
 
 @each $name, $value in $colours {
