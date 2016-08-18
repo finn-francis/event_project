@@ -45,6 +45,7 @@ en:
     first_name: First Name
     last_name: Last Name
     description: Description
+    image: Profile Image Url
     country: Country
     city: City/Town
     save: Save

@@ -8,12 +8,14 @@ When(/^they enter their profile details$/) do
   @description = Faker::Lorem.paragraph
   @country = 'United Kingdom'
   @city = 'United Kingdom'
+  @user_url = Faker::Avatar.image
 
   fill_in 'profile_first_name', with: @first_name
   fill_in 'profile_last_name', with: @last_name
   fill_in 'profile_description', with: @description
   fill_in 'profile_country', with: @country
   fill_in 'profile_city', with: @city
+  fill_in 'profile_image_url', with: @user_url
 end
 
 Then(/^the profile edits will be saved$/) do
@@ -23,5 +25,6 @@ Then(/^the profile edits will be saved$/) do
   expect(@user.profile.description).to eq(@description)
   expect(@user.profile.country).to eq(@country)
   expect(@user.profile.city).to eq(@city)
+  expect(@user.profile.image_url).to eq(@user_url)
 end
 
