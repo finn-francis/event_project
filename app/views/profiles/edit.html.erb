@@ -11,6 +11,11 @@
     </div>
 
     <div class="form-group">
+      <%= f.label [t('profile.description'), ':'].join, class: 'h4' %>
+      <%= f.text_field :description, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
       <%= f.submit t('profile.save'), class: 'btn btn-default pull-right' %>
     </div>
   <% end %>

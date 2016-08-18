@@ -42,5 +42,6 @@ en:
   profile:
     first_name: First Name
     last_name: Last Name
+    description: Description
     save: Save
 
