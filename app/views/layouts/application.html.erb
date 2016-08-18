@@ -7,27 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body class="bg-light-grey">
-  <div id="main-header" class="container-fluid">
-    <header class="row bg-header-green">
-      <h1 class="col-md-6 h2"><%= link_to t('layout.title'), root_path %></h1>
-      <nav class="col-md-6" id="main-nav">
-        <ul class="list-inline pull-right">
-          <li class="list-inline-item h3">
+<body class='bg-light-grey'>
+  <div id='main-header' class='container-fluid'>
+    <header class='row bg-header-green'>
+      <h1 class='col-md-6 h2'><%= link_to t('layout.title'), root_path %></h1>
+      <nav class='col-md-6' id='main-nav'>
+        <ul class='list-inline pull-right'>
+          <li class='list-inline-item h3'>
             <%= link_to t('layout.home'), root_path %>
           </li>
 
-          <li class="list-inline-item h3">
+          <li class='list-inline-item h3'>
             <%= t('layout.events') %>
           </li>
 
-          <li class="list-inline-item dropdown h3">
-            <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <li class='list-inline-item dropdown h3'>
+            <button class='dropdown-toggle' type='button' id='dropdownMenu1' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
               <%= t('layout.options') %>
             </button>
 
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <ul class='dropdown-menu' aria-labelledby='dropdownMenu1'>
               <% if @current_user %>
+                <li>
+                  <%= link_to t('layout.profile'), ['/users/', @current_user.id, '/profile'].join, id: 'profile-link' %></a>
+                </li>
+
                 <li>
                   <%= link_to t('layout.edit_profile'), ['/users/', @current_user.id, '/profile/edit'].join %></a>
                 </li>
@@ -36,12 +40,14 @@
                   <%= link_to t('layout.new_event'), new_event_path %>
                 </li>
 
+                <hr class='m-v-0'>
+
                 <li>
                   <%= link_to t('layout.invite'), ['/users/', @current_user.id, '/invites'].join %>
                 </li>
               <% end %>
 
-              <hr class="m-b-0">
+              <hr class='m-v-0'>
 
               <li>
                 <% if @current_user %>
@@ -57,11 +63,11 @@
       </nav>
     </header>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class='notice'><%= notice %></p>
+    <p class='alert'><%= alert %></p>
   </div>
 
-  <div class="container-fluid">
+  <div class='container-fluid'>
     <%= yield %>
   </div>
 </body>

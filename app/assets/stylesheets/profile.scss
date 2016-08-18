@@ -1,0 +1,14 @@
+#profile-info {
+  padding: 10px;
+}
+
+#profile-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-position: center center;
+
+  img {
+    width: 100%;
+  }
+}

@@ -1,3 +1,18 @@
+Given(/^they have filled in their profile details$/) do
+  step 'the user clicks the "Edit Profile" link'
+  step 'they enter their profile details'
+  step 'they click the "Save" button'
+end
+
+Then(/^they see all of their profile details on the page$/) do
+  expect(page).to have_content(@first_name)
+  expect(page).to have_content(@last_name)
+  expect(page).to have_content(@description)
+  expect(page).to have_content(@country)
+  expect(page).to have_content(@city)
+  expect(page).to have_css('img', @user_url)
+end
+
 Given(/^the user clicks the "([^"]*)" link$/) do |link|
   click_link link
 end

@@ -11,3 +11,8 @@ Feature: Profile
       And they click the "Save" button
     Then the profile edits will be saved
 
+  Scenario: A User views their profile page
+    Given they have filled in their profile details
+    When the user clicks the "profile-link" link
+    Then they see all of their profile details on the page
+
