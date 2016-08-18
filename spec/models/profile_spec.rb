@@ -11,7 +11,7 @@ RSpec.describe Profile, type: :model do
   end
 
   it "should create a profile for each user on user create" do
-    expect(Profile.count).to eq(1)
+    expect(Profile.count).to eq(2)
   end
 
   it "should only allow one profile per user" do
