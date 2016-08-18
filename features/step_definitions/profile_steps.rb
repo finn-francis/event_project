@@ -20,6 +20,8 @@ Then(/^the profile edits will be saved$/) do
   @user = User.last
   expect(@user.profile.first_name).to eq(@first_name)
   expect(@user.profile.last_name).to eq(@last_name)
-  expect(@user.profile.description).to eq(@desciption)
+  expect(@user.profile.description).to eq(@description)
+  expect(@user.profile.country).to eq(@country)
+  expect(@user.profile.city).to eq(@city)
 end
 
