@@ -26,6 +26,8 @@ en:
     events: Events
     profile: Options
     edit_profile: Edit Profile
+    log_out: Log Out
+    log_in: Log In
     invite: Invites
   event:
     new:

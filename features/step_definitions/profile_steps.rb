@@ -17,7 +17,7 @@ When(/^they enter their profile details$/) do
 end
 
 Then(/^the profile edits will be saved$/) do
-  @user = User.first
+  @user = User.last
   expect(@user.profile.first_name).to eq(@first_name)
   expect(@user.profile.last_name).to eq(@last_name)
   expect(@user.profile.description).to eq(@desciption)

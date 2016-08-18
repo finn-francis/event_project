@@ -9,7 +9,7 @@ function initMap() {
     center: {lat: lat, lng: lng},
     zoom: 12
   });
-  
+
   addMarker(lat, lng);
 }
 

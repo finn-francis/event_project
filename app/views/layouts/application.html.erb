@@ -26,11 +26,23 @@
               <%= t('layout.options') %>
             </button>
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <% if @current_user %>
-                <%= link_to t('layout.edit_profile'), ['/users/', @current_user.id, '/profile/edit'].join %></a>
-              <% end %>
-            </div>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li>
+                <% if @current_user %>
+                  <%= link_to t('layout.edit_profile'), ['/users/', @current_user.id, '/profile/edit'].join %></a>
+                <% end %>
+              </li>
+
+              <hr class="m-b-0">
+
+              <li>
+                <% if @current_user %>
+                  <%= link_to t('layout.log_out'), destroy_user_session_path, method: 'delete' %></a>
+                <% else %>
+                  <%= link_to t('layout.log_in'), new_user_session_path %>
+                <% end %>
+              </li>
+            </ul>
           </li>
 
           <li class="list-inline-item h3">
