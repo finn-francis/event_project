@@ -1,3 +1,4 @@
+Attendance.destroy_all
 Event.destroy_all
 Profile.destroy_all
 User.destroy_all
@@ -181,3 +182,12 @@ adele_adkins.profile.update!(
   city: 'London',
   image_url: 'http://www.billboard.com/files/styles/article_main_image/public/media/Adele-2015-press-Alasdair-McLellan-XL-billboard-650-2.jpg'
 )
+
+users = User.where.not(email: 'finn_francis@yahoo.com')
+
+users.each do |user|
+  Attendance.create!(
+    user_id: user.id,
+    event_id: event.id
+  )
+end
