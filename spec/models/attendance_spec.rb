@@ -28,4 +28,18 @@ RSpec.describe Attendance, type: :model do
     expect(@user_two.attending).to include(@event)
   end
 
+  describe 'avoiding duplicate attendances' do
+    before do
+      @attendance = Attendance.new(
+        user_id: @user_two.id,
+        event_id: @event.id
+      )
+    end
+
+    it 'should not allow multiple attendances from the same person' do
+      expect(@attendance.valid?).to eq(false)
+    end
+
+  end
+
 end

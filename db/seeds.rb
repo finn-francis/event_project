@@ -183,7 +183,7 @@ adele_adkins.profile.update!(
   image_url: 'http://www.billboard.com/files/styles/article_main_image/public/media/Adele-2015-press-Alasdair-McLellan-XL-billboard-650-2.jpg'
 )
 
-users = User.where.not(email: 'finn_francis@yahoo.com')
+users = User.where.not(email: 'finn-francis@yahoo.com')
 
 users.each do |user|
   Attendance.create!(

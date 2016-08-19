@@ -4,4 +4,5 @@ class Attendance < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :event_id, presence: true
+  validates :user_id, uniqueness: { scope: :event_id }
 end
