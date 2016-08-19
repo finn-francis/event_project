@@ -3,6 +3,18 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = @user.profile
+
+    respond_to do |format|
+      format.json do
+        render json: @profile
+      end
+
+      format.html
+
+      # format.js do
+      #   @todo_items = TodoItem.order(params[:order])
+      # end
+    end
   end
 
   def edit

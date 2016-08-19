@@ -11,7 +11,8 @@ class Profile < ActiveRecord::Base
   end
 
   def location
-    [self.country, self.city].join ' '
+    address = [self.country, self.city].join ' '
+    return address == ' ' ? false : address
   end
 
   private

@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   private
 
   def create_profile
-    Profile.create user: self
+    Profile.create! user_id: self.id
   end
 
 end
