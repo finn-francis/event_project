@@ -4,17 +4,12 @@ Given(/^they have filled in their profile details$/) do
   step 'they click the "Save" button'
 end
 
-Then(/^they see all of their profile details on the page$/) do
-  expect(page).to have_content(@first_name)
-  expect(page).to have_content(@last_name)
-  expect(page).to have_content(@description)
-  expect(page).to have_content(@country)
-  expect(page).to have_content(@city)
-  expect(page).to have_css('img', @user_url)
-end
-
 Given(/^the user clicks the "([^"]*)" link$/) do |link|
   click_link link
+end
+
+When(/^they click on an attendees profile thumbnail$/) do
+  click_link [@user_one.id, '-profile'].join("")
 end
 
 When(/^they enter their profile details$/) do
@@ -41,5 +36,22 @@ Then(/^the profile edits will be saved$/) do
   expect(@user.profile.country).to eq(@country)
   expect(@user.profile.city).to eq(@city)
   expect(@user.profile.image_url).to eq(@user_url)
+end
+
+Then(/^they see all of their profile details on the page$/) do
+  expect(page).to have_content(@first_name)
+  expect(page).to have_content(@last_name)
+  expect(page).to have_content(@description)
+  expect(page).to have_content(@country)
+  expect(page).to have_content(@city)
+  expect(page).to have_css('img', @user_url)
+end
+
+Then(/^they should be redirectd to the users profile$/) do
+  profile = @user_one.profile
+  expect(page).to have_content(profile.name)
+  expect(page).to have_content(profile.location)
+  expect(page).to have_content(profile.description)
+  expect(page).to have_css('img', profile.image_url)
 end
 

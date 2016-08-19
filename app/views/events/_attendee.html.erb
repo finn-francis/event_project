@@ -1,6 +1,8 @@
 <div class="col-md-4 event-profile-info">
-   <div class="profile-thumbnail">
-    <img src='<%= attendee.profile.image_url %>'>
-  </div>
-  <small><%= attendee.profile.name %></small>
+  <%= link_to ['/users/', attendee.id, '/profile'].join, id: [attendee.id, '-profile'].join do %>
+    <div class="profile-thumbnail">
+      <img src='<%= attendee.profile.image_url %>'>
+    </div>
+    <small><%= attendee.profile.name %></small>
+  <% end %>
 </div>
