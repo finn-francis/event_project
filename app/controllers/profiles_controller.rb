@@ -10,10 +10,6 @@ class ProfilesController < ApplicationController
       end
 
       format.html
-
-      # format.js do
-      #   @todo_items = TodoItem.order(params[:order])
-      # end
     end
   end
 

@@ -9,7 +9,11 @@
 
   <div id="attending" class="col-md-4 m-t">
     <div class="col-md-12 dft-border bg-white">
-      <%= render partial: "attendee", collection: @attendees %>
+      <h3>Attending</h3>
+      <hr>
+      <div class="row">
+        <%= render partial: "attendee", collection: @attendees %>
+      </div>
     </div>
   </div>
 
