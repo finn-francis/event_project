@@ -4,7 +4,7 @@ Profile.destroy_all
 User.destroy_all
 
 me = User.create!(
-  email: 'finn_francis@yahoo.com',
+  email: 'finn-francis@yahoo.com',
   password: 'password',
   password_confirmation: 'password'
 )
