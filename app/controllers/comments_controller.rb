@@ -2,8 +2,14 @@ class CommentsController < ApplicationController
   before_action :find_event, only: [:create]
 
   def create
-    @event.comments.create! comment_params
-    redirect_to @event
+    @comment = @event.comments.create!(comment_params)
+    respond_to do |format|
+      format.html do
+        redirect_to @event
+      end
+
+      format.js
+    end
   end
 
   private

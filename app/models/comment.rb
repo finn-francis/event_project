@@ -4,6 +4,7 @@ class Comment < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :event_id, presence: true
+  validates :body, presence: true, length: { minimum: 1 }
 
   scope :sorted, proc { order(:created_at) }
 end

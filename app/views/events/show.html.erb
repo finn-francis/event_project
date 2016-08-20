@@ -28,9 +28,11 @@
 
     <div id="comments">
       <div class="col-md-12 dft-border bg-white m-t dft-padding">
-        <%= render @comments %>
+        <div id="event-comments">
+          <%= render @comments %>
+        </div>
 
-        <%= form_for [@event, Comment.new] do |f| %>
+        <%= form_for [@event, Comment.new], remote: true do |f| %>
           <%= f.hidden_field :user_id, value: @current_user.id %>
           <div class="form-group">
             <%= f.label [t('comment.new'), ':'].join, class: 'h4'  %>
@@ -38,7 +40,7 @@
           </div>
 
           <div class="form-group">
-            <%= f.submit t('comment.submit'), class: 'btn btn-default' %>
+            <%= f.submit t('comment.submit'), id: 'comment-submit', class: 'btn btn-default' %>
           </div>
         <% end %>
       </div>
@@ -47,6 +49,7 @@
 
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap">
+  <script src="/assets/comment.js"></script>
   </script>
 </div>
 
