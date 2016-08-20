@@ -1,0 +1,7 @@
+var commentSection = $('#<%= @comment.id %>-comment')
+var editBox = $('#<%= @comment.id %>-edit-box')
+
+editBox.toggle();
+commentSection.toggle();
+
+commentSection.find('p').html("<%= @comment.body %>")

@@ -16,6 +16,15 @@ When(/^they write a comment in the comment box$/) do
   fill_in 'comment_body', with: @comment
 end
 
+When(/^they edit their comment$/) do
+  @new_comment = Faker::Lorem.paragraph
+  fill_in 'edit_comment_body', with: @new_comment
+end
+
+Then(/^the comment should be changed$/) do
+  expect(page).to have_content(@new_comment)
+end
+
 Then(/^the comment should be deleted$/) do
   expect(page).not_to have_content(@user_comment)
 end

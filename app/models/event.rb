@@ -7,6 +7,8 @@ class Event < ActiveRecord::Base
   has_many :attending, class_name: 'User', through: :attendances, source: :attending
   has_many :comments
 
+  accepts_nested_attributes_for :comments
+
   validates :organiser_id, presence: :true
   validates :title, presence: :true
   validates :description, presence: :true

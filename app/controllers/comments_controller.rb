@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_event, only: [:create, :destroy]
-  before_action :find_comment, only: [:destroy]
+  before_action :find_comment, only: [:destroy, :update]
 
   def create
     @comment = @event.comments.create!(comment_params)
@@ -9,6 +9,13 @@ class CommentsController < ApplicationController
         redirect_to @event
       end
 
+      format.js
+    end
+  end
+
+  def update
+    @comment.update comment_params
+    respond_to do |format|
       format.js
     end
   end

@@ -25,3 +25,12 @@ Feature: Comment
       And they visit the event page
     When they press delete
     Then the comment should be deleted
+
+  @javascript
+  Scenario: A User edits their comment
+    Given they have posted a comment
+      And they visit the event page
+    When they click the "edit" button
+      And they edit their comment
+      And they click the "Save Changes" button
+    Then the comment should be changed

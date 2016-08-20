@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resource :comments, only: [:create]
   end
 
-  resource :comments, only: [:destroy]
+  resource :comments, only: [:destroy, :edit, :update]
   resources :invites, only: [:update]
 
   root 'pages#home'
