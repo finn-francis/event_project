@@ -6,7 +6,9 @@ Given(/^they have posted a comment$/) do
 end
 
 When(/^they press delete$/) do
-  click_button 'x'
+  accept_confirm do
+    click_button 'x'
+  end
 end
 
 When(/^they write a comment in the comment box$/) do

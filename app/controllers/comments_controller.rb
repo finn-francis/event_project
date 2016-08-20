@@ -14,8 +14,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy
-    redirect_to @event
+    respond_to do |format|
+      format.html do
+        @comment.destroy
+        redirect_to @event
+      end
+
+      format.js
+    end
   end
 
   private

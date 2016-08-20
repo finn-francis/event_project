@@ -4,3 +4,13 @@
   border: none;
   background-color: $header-green;
 }
+
+.delete-button {
+  border: none;
+  background-color: #FFF;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $light-grey;
+  }
+}
