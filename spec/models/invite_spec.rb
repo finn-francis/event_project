@@ -26,7 +26,6 @@ RSpec.describe Invite, type: :model do
       event: @event,
       invited: @user_one
     )
-
   end
 
   describe 'A user creates an invite' do

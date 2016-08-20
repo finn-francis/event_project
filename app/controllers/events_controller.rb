@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :find_event, only: [:show]
+  before_action :find_comments, only: [:show]
 
   def new
     @event = Event.new
@@ -22,6 +23,10 @@ class EventsController < ApplicationController
 
   def find_event
     @event = Event.find(params[:id])
+  end
+
+  def find_comments
+    @comments = @event.comments.sorted
   end
 
 end

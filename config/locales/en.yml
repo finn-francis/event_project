@@ -40,6 +40,13 @@ en:
       country: Country
       city: City/Town
       postcode: Postcode
+    show:
+      attending: Attending
+      comments: Comments
+  comment:
+    new: Leave a comment
+    submit: Post Comment
+    post_time: Posted At
   buttons:
     accept: Accept
     decline: Decline

@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     get :invites, only: [:index]
   end
 
-  resources :events, only: [:new, :create, :show]
+  resources :events, only: [:new, :create, :show] do
+    resource :comments, only: [:create]
+  end
+
   resources :invites, only: [:update]
 
   root 'pages#home'

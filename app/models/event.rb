@@ -3,9 +3,9 @@ class Event < ActiveRecord::Base
 
   has_many :invites, foreign_key: :event_id
   has_many :invited, class_name: 'User', through: :invites
-
   has_many :attendances
   has_many :attending, class_name: 'User', through: :attendances, source: :attending
+  has_many :comments
 
   validates :organiser_id, presence: :true
   validates :title, presence: :true

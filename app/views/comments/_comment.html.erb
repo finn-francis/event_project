@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-4 comment-user-info">
+    <% profile = comment.user.profile %>
+    <%= link_to ['/users/', comment.user.id, '/profile'].join, id: [comment.user.id, '-comment-profile'].join do %>
+      <div class="row">
+        <div class="comment-thumbnail col-md-6">
+          <img src='<%= profile.image_url %>'>
+        </div>
+
+        <div class='comment-info col-md-6'>
+          <small><%= profile.name %></small>
+          <small>
+            <%= t('comment.post_time') %>:
+            <%= comment.created_at %>
+          </small>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-8">
+    <p>
+      <%= comment.body %>
+    </p>
+  </div>
+
+  <div class="col-md-12">
+    <hr class='comment-hr'>
+  </div>
+</div>

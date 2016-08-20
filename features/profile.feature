@@ -17,7 +17,6 @@ Feature: Profile
     When the user clicks the "profile-link" link
     Then they see all of their profile details on the page
 
-  @wip
   Scenario: A User visits someone elses profile
     Given there are two users
       And the User is signed up
