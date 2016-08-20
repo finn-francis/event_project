@@ -14,9 +14,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment.destroy
     respond_to do |format|
       format.html do
-        @comment.destroy
         redirect_to @event
       end
 
