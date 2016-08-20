@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :find_event, only: [:create]
+  before_action :find_event, only: [:create, :destroy]
+  before_action :find_comment, only: [:destroy]
 
   def create
     @comment = @event.comments.create!(comment_params)
@@ -12,6 +13,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment.destroy
+    redirect_to @event
+  end
+
   private
 
   def comment_params
@@ -20,6 +26,10 @@ class CommentsController < ApplicationController
 
   def find_event
     @event = Event.find(params[:event_id])
+  end
+
+  def find_comment
+    @comment = Comment.find(params[:id])
   end
 
 end

@@ -12,3 +12,9 @@ Feature: Comment
     When they write a comment in the comment box
       And they click the "Post Comment" button
     Then their comment is posted
+
+  Scenario: A User deletes their comment
+    Given they have posted a comment
+      And they visit the event page
+    When they press delete
+    Then the comment should be deleted
