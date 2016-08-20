@@ -10,8 +10,7 @@
         <div class='comment-info col-md-6'>
           <small><%= profile.name %></small>
           <small>
-            <%= t('comment.post_time') %>:
-            <%= comment.created_at %>
+            <%= comment.created_at.to_formatted_s(:short) %>
           </small>
         </div>
       </div>
