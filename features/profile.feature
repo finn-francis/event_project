@@ -26,3 +26,13 @@ Feature: Profile
       And they visit the event page
     When they click on an attendees profile thumbnail
     Then they should be redirectd to the users profile
+
+  Scenario: A User views thei profile page
+    Given there are two users
+      And the User is signed up
+      And they are signed in
+      And they have filled in their profiles
+      And there is an event with attendees
+    When the user clicks the "Profile" link
+    Then they should see the events that they are attending
+

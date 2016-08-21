@@ -20,10 +20,17 @@ class Event < ActiveRecord::Base
   after_validation :geocode
   after_create :create_attendance
 
+  scope :sorted, proc { order(created_at: :desc) }
+
+  def location
+    address = [self.country, self.city].join(" ")
+    return address == " " ? false : address
+  end
+
   private
 
   def geocoder_input
-    thing = [self.country, self.city, self.postcode].join(", ")
+    [self.country, self.city, self.postcode].join(", ")
   end
 
   def create_attendance

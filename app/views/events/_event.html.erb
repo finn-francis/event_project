@@ -1,0 +1,17 @@
+<%= link_to event, id: 'hello' do %>
+  <article class="row">
+    <div class="col-md-12">
+      <hr>
+    </div>
+
+    <div class="event-thumbnail col-md-4">
+      <img src="<%= event.image_url %>" alt="<%= event.title %> image">
+    </div>
+
+    <div class="event-info">
+      <h4><%= event.title %></h4>
+      <small><%= event.location %></small>
+      <p><%= event.description %></p>
+    </div>
+  </article>
+<% end %>

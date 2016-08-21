@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = @user.profile
+    @events = @user.attending.sorted
 
     respond_to do |format|
       format.json do

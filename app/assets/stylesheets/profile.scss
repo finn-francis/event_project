@@ -12,3 +12,18 @@
     width: 100%;
   }
 }
+
+.event-thumbnail {
+  overflow: hidden;
+  background-position: center center;
+
+  img {
+    width: 100%;
+  }
+}
+
+.event-info {
+  h4 {
+    margin-top: 0;
+  }
+}

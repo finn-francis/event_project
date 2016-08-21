@@ -1,24 +1,33 @@
 <div class='row'>
-  <section id='profile-info' class='col-md-3 bg-white dft-border'>
-    <div id='profile-image'>
-      <img src='<%= @profile.image_url %>'>
+  <section class='col-md-3'>
+    <div id='profile-info' class="col-md-12 bg-white m-t dft-border">
+      <div id='profile-image'>
+        <img src='<%= @profile.image_url %>'>
+      </div>
+
+      <div>
+        <% if @profile.name %>
+          <h3><%= @profile.name %></h3>
+          <hr>
+        <% end %>
+
+        <% if @profile.description %>
+          <strong>About me:</strong>
+          <p><%= @profile.description %></p>
+          <hr>
+        <% end %>
+
+        <% if @profile.location %>
+          <p><strong>Lives in:</strong> <%= @profile.location %></p>
+        <% end %>
+      </div>
     </div>
+  </section>
 
-    <div>
-      <% if @profile.name %>
-        <h3><%= @profile.name %></h3>
-        <hr>
-      <% end %>
-
-      <% if @profile.description %>
-        <strong>About me:</strong>
-        <p><%= @profile.description %></p>
-        <hr>
-      <% end %>
-
-      <% if @profile.location %>
-        <p><strong>Lives in:</strong> <%= @profile.location %></p>
-      <% end %>
+  <section class="col-md-9">
+    <div class="col-md-12 bg-white m-t p-b dft-border">
+      <h3><%= t('profile.events') %></h3>
+      <%= render @events %>
     </div>
   </section>
 </div>
