@@ -27,7 +27,9 @@
             class: 'comment-button' %>
         </li>
         <li>
-          <button id="<%= comment.id %>-comment-edit" class="comment-button">edit</button>
+          <button id="<%= comment.id %>-comment-edit" class="comment-button">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
         </li>
       </ul>
     <% end %>
@@ -44,9 +46,7 @@
   </div>
 
 <script>
-  var commentEditButton = "#<%= comment.id %>-comment-edit"
-  var commentId = "#<%= comment.id %>-comment"
-  var commentEditBoxId = "#<%= comment.id %>-edit-box"
+  var id = "<%= comment.id %>"
+  setClick(id);
 </script>
-<script src="/assets/comment.js"></script>
 </div>

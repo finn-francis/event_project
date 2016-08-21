@@ -11,6 +11,10 @@ When(/^they press delete$/) do
   end
 end
 
+When(/^they click the edit comment button$/) do
+  click_button [Comment.first.id, '-comment-edit'].join
+end
+
 When(/^they write a comment in the comment box$/) do
   @comment = Faker::Lorem.paragraph
   fill_in 'comment_body', with: @comment
