@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   after_validation :geocode
   after_create :create_attendance
 
-  scope :sorted, proc { order(created_at: :desc) }
+  scope :sorted, proc { order(created_at: :desc).uniq }
 
   def location
     address = [self.country, self.city].join(" ")
