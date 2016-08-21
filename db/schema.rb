@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820085810) do
+ActiveRecord::Schema.define(version: 20160821124157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20160820085810) do
     t.integer  "user_id"
     t.integer  "event_id"
     t.string   "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_tags", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -66,6 +73,12 @@ ActiveRecord::Schema.define(version: 20160820085810) do
     t.decimal  "latitude"
     t.decimal  "longitude"
     t.string   "image_url",   default: "/assets/default-user.png"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

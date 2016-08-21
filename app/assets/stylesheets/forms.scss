@@ -2,8 +2,12 @@ form {
   background-color: white;
   border-radius: 5px;
   padding: 5px;
-  
+
   .submit {
     text-align: right;
   }
+}
+
+.hidden-form {
+  display: none;
 }

@@ -36,7 +36,7 @@
     <p><%= comment.body %></p>
   </div>
 
-  <%= form_for comment, url: comments_path(id: comment.id), html: { class: 'col-md-7', id: "#{comment.id}-edit-box", style: "display: none;"}, remote: true do |f| %>
+  <%= form_for comment, url: comments_path(id: comment.id), html: { class: 'col-md-7 hidden-form', id: "#{comment.id}-edit-box"}, remote: true do |f| %>
     <%= f.text_area :body, class: 'form-control', id: 'edit_comment_body' %>
     <%= f.submit t('comment.edit.save'), class: 'btn btn-sm btn-default pull-right' %>
   <% end %>

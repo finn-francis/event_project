@@ -1,0 +1,5 @@
+var tagForm = $('#new-tag-form');
+var tagList = $('#tag-list');
+
+tagForm.toggle('display');
+tagList.append('<%= j(render @tag) %>');

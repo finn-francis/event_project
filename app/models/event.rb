@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
   has_many :attendances
   has_many :attending, class_name: 'User', through: :attendances, source: :attending
   has_many :comments
+  has_many :event_tags
+  has_many :tags, through: :event_tags
 
   accepts_nested_attributes_for :comments
 

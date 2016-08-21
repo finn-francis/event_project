@@ -49,6 +49,10 @@ en:
     post_time: Posted At
     edit:
       save: Save Changes
+  tag:
+    new: +
+    name: Name
+    save: Save
   buttons:
     accept: Accept
     decline: Decline
