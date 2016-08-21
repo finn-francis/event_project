@@ -4,5 +4,5 @@ class EventTag < ActiveRecord::Base
 
   validates :event_id, presence: true
   validates :tag_id, presence: true
-  validates :user_id, uniqueness: { scope: :event_id }
+  validates :tag_id, uniqueness: { scope: :event_id }
 end
