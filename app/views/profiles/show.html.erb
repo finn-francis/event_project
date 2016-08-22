@@ -28,6 +28,7 @@
             <button class="btn btn-sm btn-info disabled"><%= t('profile.friend_request_sent') %></button>
           <% elsif @current_user.friends_with?(@profile.user) %>
             <button class="btn btn-danger btn-sm">Unfriend</button>
+          <% elsif @current_user == @profile.user %>
           <% else %>
             <%= button_to ["/users/", @profile.user.id, "/friend_request"].join, class: "btn btn-sm btn-info" do %>
               <%= t('profile.add_friend') %>
