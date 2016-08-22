@@ -1,3 +1,5 @@
 <li class='inline-list-item'>
-  <small><%= tag.name %></small>
+  <%= link_to tags_path(id: tag.id) do %>
+    <small><%= tag.name %></small>
+  <% end %>
 </li>

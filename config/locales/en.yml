@@ -65,4 +65,6 @@ en:
     city: City/Town
     save: Save
     events: Events
+  search:
+    results: Search results
 

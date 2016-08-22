@@ -12,6 +12,10 @@
       <h4><%= event.title %></h4>
       <small><%= event.location %></small>
       <p><%= event.description %></p>
+      <hr class="short-hr">
+      <ul class="list-inline tag-list">
+        <%= render event.tags %>
+      </ul>
     </div>
   </article>
 <% end %>

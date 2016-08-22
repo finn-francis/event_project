@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resource :comments, only: [:destroy, :edit, :update]
   resources :invites, only: [:update]
+  resources :tags, only: [:index]
 
   root 'pages#home'
 end
