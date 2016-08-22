@@ -6,6 +6,9 @@
 
 require 'cucumber/rails'
 require 'simplecov'
+require './spec/helpers/user_data_helper'
+require './spec/helpers/event_data_helper'
+require './spec/helpers/comment_data_helper'
 SimpleCov.start 'rails'
 
 # Capybara defaults to CSS3 selectors rather than XPath.
@@ -36,6 +39,11 @@ begin
   DatabaseCleaner.strategy = :transaction
 rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
+end
+
+Before do
+  extend UserData
+  extend EventData
 end
 
 # You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.

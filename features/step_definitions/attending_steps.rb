@@ -1,5 +1,4 @@
 Given(/^there is an event with attendees$/) do
-  step "there is an event"
   step "they have an invite"
 
   @invite.update accepted: true
@@ -18,7 +17,7 @@ Given(/^they have filled in their profiles$/) do
 end
 
 When(/^they visit the event page$/) do
-  visit ['/events/', @event.id].join
+  visit ['/events/', @event_one.id].join
 end
 
 Then(/^they should see the attending users$/) do

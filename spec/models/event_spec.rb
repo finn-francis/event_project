@@ -2,26 +2,26 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   before do
-    @user_one = User.create!(
-      email: Faker::Internet.email,
-      password: 'password',
-      password_confirmation: 'password'
-    )
+    extend UserData
+    extend EventData
+  end
 
-    @event = @user_one.events.create!(
-      title: Faker::Company.name,
-      description: Faker::Lorem.paragraph,
-      country: "United Kingdom",
-      city: "Hoddesdon",
-      postcode: "EN11 8BX",
-      organiser_id: 1
-    )
+  describe 'A user creates an event' do
+    it 'should create a new event' do
+      expect(Event.count).to eq(2)
+      expect(@user_one.events.first).to eq(@event_one)
+      expect(@event_one.valid?).to eq(true)
+    end
+
+    it 'should contain the users id as "organiser_id"' do
+      expect(@event_one.organiser_id).to eq(@user_one.id)
+    end
   end
 
   describe "geocoding" do
     it "automatically geocodes the event on save" do
-      expect(@event.latitude).to be_within(0.000001).of 51.7600069999999
-      expect(@event.longitude).to be_within(0.000001).of -0.015042
+      expect(@event_one.latitude).to be_within(0.000001).of 51.7600069999999
+      expect(@event_one.longitude).to be_within(0.000001).of -0.015042
     end
   end
 end

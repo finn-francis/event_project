@@ -1,9 +1,7 @@
 Feature: Event
 
   Background:
-    Given the User is signed up
-      And they are signed in
-      And they are on the homepage
+    Given they are signed in
 
   Scenario: A User creates a new event
     When the user clicks the "New Event" link

@@ -3,18 +3,7 @@ require 'rails_helper'
 RSpec.describe FriendRequest, type: :model do
   describe 'create' do
     before do
-      @user_one = User.create!(
-        email: Faker::Internet.email,
-        password: 'password',
-        password_confirmation: 'password'
-      )
-
-      @user_two = User.create!(
-        email: Faker::Internet.email,
-        password: 'password',
-        password_confirmation: 'password'
-      )
-
+      extend UserData
       @request = @user_one.friend_requests.create!(
         receiver: @user_two
       )
@@ -46,7 +35,6 @@ RSpec.describe FriendRequest, type: :model do
         expect(@user_one.friends_with?(@user_two)).to eq(true)
         expect(@user_two.friends_with?(@user_one)).to eq(true)
       end
-
     end
   end
 end

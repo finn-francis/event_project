@@ -1,11 +1,7 @@
 Feature: Invites
 
   Background:
-    Given there are two users
-      And there is an event
-      And the User is signed up
-      And they are signed in
-      And they are on the homepage
+    Given they are signed in
       And they have an invite
     When they click on the invite
 

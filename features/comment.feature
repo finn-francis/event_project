@@ -1,10 +1,7 @@
 Feature: Comment
 
   Background:
-    Given there are two users
-      And the User is signed up
-      And they are signed in
-      And they have filled in their profiles
+    Given they are signed in
       And there is an event with attendees
       And they visit the event page
 

@@ -37,7 +37,6 @@ Then(/^they should not be able to make another request$/) do
   fill_in "Password", with: @user_one.password
   click_button "Log in"
   visit user_profile_path(@user_two)
-  save_and_open_page
-  expect(page).to have_content("Friend request sent")
+  expect(page).to_not have_content("Add friend")
 end
 

@@ -1,6 +1,6 @@
 Given(/^they have posted a comment$/) do
   @user_comment = @user_one.comments.create!(
-    event: @event,
+    event: @event_one,
     body: Faker::Lorem.paragraph
   )
 end

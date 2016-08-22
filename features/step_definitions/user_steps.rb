@@ -1,27 +1,3 @@
-Given(/^there are two users$/) do
-  @user_one = User.create!(
-    email: Faker::Internet.email,
-    password: 'password',
-    password_confirmation: 'password'
-  )
-
-  @user_two = User.create!(
-    email: Faker::Internet.email,
-    password: 'password',
-    password_confirmation: 'password'
-  )
-end
-
-Given(/^there is an event$/) do
-  @event = @user_two.events.create!(
-    title: Faker::Name.title,
-    description: Faker::Lorem.paragraph,
-    country: 'United Kingdom',
-    city: 'Hoddesdon',
-    postcode: 'EN11 8BX'
-  )
-end
-
 Given(/^the user is on the sign up page$/) do
   visit new_user_registration_path
 end

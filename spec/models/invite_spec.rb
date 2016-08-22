@@ -2,28 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Invite, type: :model do
   before do
-    @user_one = User.create!(
-      email: Faker::Internet.email,
-      password: 'password',
-      password_confirmation: 'password'
-    )
-
-    @user_two = User.create!(
-      email: Faker::Internet.email,
-      password: 'password',
-      password_confirmation: 'password'
-    )
-
-    @event = @user_two.events.create!(
-      title: Faker::Internet.name,
-      description: Faker::Lorem.paragraph,
-      country: 'United Kingdom',
-      city: 'Hoddesdon',
-      postcode: 'EN11 8BX'
-    )
+    extend UserData
+    extend EventData
 
     @invite_one = @user_two.invites.create!(
-      event: @event,
+      event: @event_one,
       invited: @user_one
     )
   end
@@ -40,9 +23,9 @@ RSpec.describe Invite, type: :model do
     end
 
     it 'should register in the event invites' do
-      expect(@event.invites.length).to eq(1)
-      expect(@event.invited.length).to eq(1)
-      expect(@event.invited.first).to eq(@user_one)
+      expect(@event_one.invites.length).to eq(1)
+      expect(@event_one.invited.length).to eq(1)
+      expect(@event_one.invited.first).to eq(@user_one)
     end
   end
 
@@ -53,7 +36,7 @@ RSpec.describe Invite, type: :model do
     end
 
     it "should create a new attendance for the user" do
-      expect(@attendance.event).to eq(@event)
+      expect(@attendance.event).to eq(@event_one)
     end
 
   end

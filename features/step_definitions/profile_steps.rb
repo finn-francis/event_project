@@ -1,9 +1,3 @@
-Given(/^they have filled in their profile details$/) do
-  step 'the user clicks the "Edit Profile" link'
-  step 'they enter their profile details'
-  step 'they click the "Save" button'
-end
-
 Given(/^the user clicks the "([^"]*)" link$/) do |link|
   click_link link
 end
@@ -26,16 +20,17 @@ When(/^they enter their profile details$/) do
   fill_in 'profile_country', with: @country
   fill_in 'profile_city', with: @city
   fill_in 'profile_image_url', with: @user_url
+  click_button "Save"
+  @changed_profile = Profile.first
 end
 
 Then(/^the profile edits will be saved$/) do
-  @user = User.last
-  expect(@user.profile.first_name).to eq(@first_name)
-  expect(@user.profile.last_name).to eq(@last_name)
-  expect(@user.profile.description).to eq(@description)
-  expect(@user.profile.country).to eq(@country)
-  expect(@user.profile.city).to eq(@city)
-  expect(@user.profile.image_url).to eq(@user_url)
+  expect(@changed_profile.first_name).to eq(@first_name)
+  expect(@changed_profile.last_name).to eq(@last_name)
+  expect(@changed_profile.description).to eq(@description)
+  expect(@changed_profile.country).to eq(@country)
+  expect(@changed_profile.city).to eq(@city)
+  expect(@changed_profile.image_url).to eq(@user_url)
 end
 
 Then(/^they see all of their profile details on the page$/) do
@@ -56,9 +51,9 @@ Then(/^they should be redirectd to the users profile$/) do
 end
 
 Then(/^they should see the events that they are attending$/) do
-  expect(page).to have_content(@event.title)
-  expect(page).to have_content(@event.description)
-  expect(page).to have_content(@event.location)
-  expect(page).to have_css('img', @event.image_url)
+  expect(page).to have_content(@event_one.title)
+  expect(page).to have_content(@event_one.description)
+  expect(page).to have_content(@event_one.location)
+  expect(page).to have_css('img', @event_one.image_url)
 end
 
