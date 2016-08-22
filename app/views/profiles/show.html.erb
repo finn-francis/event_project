@@ -37,6 +37,14 @@
         <% end %>
       </div>
     </div>
+
+    <div id="friends" class="col-md-12 bg-white m-t dft-border">
+      <h3 class="h4"><%= t('profile.friends') %></h3>
+      <div class="row">
+        <hr class="m-t-0">
+        <%= render partial: "friend", collection: @friends %>
+      </div>
+    </div>
   </section>
 
   <section class="col-md-9">

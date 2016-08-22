@@ -1,0 +1,8 @@
+<div class="col-md-4 event-profile-info">
+  <%= link_to ['/users/', friend.id, '/profile'].join, id: [friend.id, '-profile'].join do %>
+    <div class="profile-thumbnail">
+      <img src='<%= friend.profile.image_url %>'>
+    </div>
+    <small><%= friend.profile.name %></small>
+  <% end %>
+</div>

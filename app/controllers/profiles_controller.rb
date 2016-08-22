@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update]
+  before_action :get_friends, only: [:show]
 
   def show
     @profile = @user.profile
@@ -31,6 +32,10 @@ class ProfilesController < ApplicationController
 
   def find_user
     @user = User.find(params[:user_id])
+  end
+
+  def get_friends
+    @friends = @user.friends
   end
 
 end
