@@ -16,3 +16,11 @@ Feature: Friend Request
       And they click the "Accept" button
     Then they should become friends with the other user
 
+  Scenario: A user declines a friends request
+    Given the user logs out
+      And the other user is signed in
+    When they click the "Friend requests" link
+      And they click the "Decline" button
+    Then they should not become friends with the other user
+      And they should not be able to make another request
+
