@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
   has_many :received_requests, class_name: "User", through: :friend_requested, source: :sender
   has_many :friendships
   has_many :friends, class_name: "User", through: :friendships, source: :friend
-
   has_many :comments
 
   validates :email, presence: true

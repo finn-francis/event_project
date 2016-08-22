@@ -65,6 +65,8 @@ en:
     city: City/Town
     save: Save
     events: Events
+    add_friend: Add friend
+    friend_request_sent: Friend request sent
   search:
     results: Search results
 

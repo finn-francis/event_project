@@ -41,8 +41,6 @@ RSpec.describe FriendRequest, type: :model do
         expect(@user_two.friends.length).to eq(1)
         expect(@user_two.friends.length).to eq(1)
       end
-
     end
-
   end
 end

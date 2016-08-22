@@ -21,6 +21,18 @@
           <p><strong>Lives in:</strong> <%= @profile.location %></p>
         <% end %>
       </div>
+
+      <div id="friend-request-div">
+        <% if @current_user %>
+          <% if @current_user.sent_requests.include?(@profile.user) %>
+            <button class="btn btn-sm btn-default disabled"><%= t('profile.friend_request_sent') %></button>
+          <% else %>
+            <%= button_to user_friend_request_path(receiver_id: @profile.user.id), class: "btn btn-sm btn-default" do %>
+              <%= t('profile.add_friend') %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </section>
 
