@@ -1,0 +1,18 @@
+<li class="row">
+  <div class="col-md-6">
+    <%= link_to user_profile_path(friend_request.sender) do %>
+    <div class="profile-thumbnail">
+      <img src="<%= friend_request.sender.profile.image_url %>">
+    </div>
+    <p><%= friend_request.sender.profile.name %></p>
+  <% end %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form_for [@current_user, friend_request], html: { method: :patch } do |f| %>
+      <%= f.button t('buttons.accept'), value: 'true', class: "btn btn-sm btn-success btn-block" %>
+      <%= f.button t('buttons.decline'), value: 'false', class: "btn btn-sm btn-danger btn-block" %>
+    <% end %>
+  </div>
+</li>
+

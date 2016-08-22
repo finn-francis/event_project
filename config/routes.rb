@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     resource :profile, only: [:edit, :update, :show]
-    post :friend_request, only: [:create]
+    resources :friend_requests, only: [:update, :index]
+    resource :friend_request, only: [:create]
     get :invites, only: [:index]
   end
 

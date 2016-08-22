@@ -41,6 +41,12 @@ RSpec.describe FriendRequest, type: :model do
         expect(@user_two.friends.length).to eq(1)
         expect(@user_two.friends.length).to eq(1)
       end
+
+      it "should make each user friends" do
+        expect(@user_one.friends_with?(@user_two)).to eq(true)
+        expect(@user_two.friends_with?(@user_one)).to eq(true)
+      end
+
     end
   end
 end

@@ -49,6 +49,10 @@
                 <li>
                   <%= link_to t('layout.invite'), ['/users/', @current_user.id, '/invites'].join %>
                 </li>
+
+                <li>
+                  <%= link_to t('layout.friend_requests'), user_friend_requests_path(@current_user) %>
+                </li>
               <% end %>
 
               <hr class='m-v-0'>

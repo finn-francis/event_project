@@ -31,6 +31,7 @@ en:
     log_in: Log In
     sign_up: Sign Up
     invite: Invites
+    friend_requests: Friend requests
   event:
     new:
       create: Create Event

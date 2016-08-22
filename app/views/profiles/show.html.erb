@@ -25,9 +25,11 @@
       <div id="friend-request-div">
         <% if @current_user %>
           <% if @current_user.sent_requests.include?(@profile.user) %>
-            <button class="btn btn-sm btn-default disabled"><%= t('profile.friend_request_sent') %></button>
+            <button class="btn btn-sm btn-info disabled"><%= t('profile.friend_request_sent') %></button>
+          <% elsif @current_user.friends_with?(@profile.user) %>
+            <button class="btn btn-danger btn-sm">Unfriend</button>
           <% else %>
-            <%= button_to user_friend_request_path(receiver_id: @profile.user.id), class: "btn btn-sm btn-default" do %>
+            <%= button_to ["/users/", @profile.user.id, "/friend_request"].join, class: "btn btn-sm btn-info" do %>
               <%= t('profile.add_friend') %>
             <% end %>
           <% end %>

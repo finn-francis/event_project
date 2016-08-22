@@ -4,6 +4,8 @@ class FriendRequest < ActiveRecord::Base
 
   after_save :update_accepted
 
+  scope :filtered, proc { where(accepted: nil) }
+
   private
 
   def update_accepted
