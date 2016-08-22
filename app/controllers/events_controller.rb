@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @attendees = @event.attending
+    @attendees = @event.attending.distinct
   end
 
   private
