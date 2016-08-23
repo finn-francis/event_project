@@ -16,6 +16,7 @@ gem 'geocoder'
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'cancancan', '~> 1.10'
+gem "rails-erd"
 
 group :production do
   gem 'rails_12factor'
