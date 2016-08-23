@@ -8,7 +8,10 @@ class Ability
     else
       can :read, :all
       can :destroy, Comment do |comment|
-        user.moderator?(comment.event)
+        comment.event.moderators.include? user
+      end
+      cannot :read, Event do |event|
+        event.banned_users.include? user
       end
     end
   end

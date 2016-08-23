@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :friends, class_name: "User", through: :friendships, source: :friend
   has_many :user_roles
   has_many :roles, through: :user_roles
+  has_many :event_roles
   has_many :comments
 
   validates :email, presence: true
@@ -29,12 +30,8 @@ class User < ActiveRecord::Base
   after_create :create_profile
 
   def admin?
-    admin = Role.find_by(name: "admin")
+    admin = Role.find_or_create_by(name: "admin")
     self.roles.include? admin
-  end
-
-  def moderator?(event)
-    event.moderators.include? self
   end
 
   def friends_with?(user)

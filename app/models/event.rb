@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   has_many :event_tags
   has_many :tags, through: :event_tags
   has_many :event_roles
-  has_many :moderators, class_name: "User", through: :event_roles, source: :user
+  has_many :users_with_roles, class_name: "User", through: :event_roles, source: :user
 
   accepts_nested_attributes_for :comments
 
@@ -30,6 +30,35 @@ class Event < ActiveRecord::Base
   def location
     address = [self.country, self.city].join(" ")
     return address == " " ? false : address
+  end
+
+  def moderators
+    moderator = Role.find_or_create_by(name: "moderator")
+    moderators = find_user_roles(moderator)
+  end
+
+  def banned_users
+    banned = Role.find_or_create_by(name: "banned")
+    banned_users = find_user_roles(banned)
+  end
+
+  def find_user_roles(role)
+    list = []
+    self.users_with_roles.find_each do |user|
+      if user.event_roles.where(event: self, role: role).length > 0
+        list << user
+      end
+    end
+    list
+  end
+
+  def ban_user(user)
+    role = Role.find_or_create_by name: 'banned'
+    EventRole.create(
+      event: self,
+      user: user,
+      role: role
+    )
   end
 
   private
