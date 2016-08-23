@@ -3,7 +3,9 @@ Given(/^the user clicks the "([^"]*)" link$/) do |link|
 end
 
 When(/^they click on an attendees profile thumbnail$/) do
-  click_link [@user_one.id, '-profile'].join("")
+  within('#attending') do
+    click_link [@user_one.id, '-profile'].join("")
+  end
 end
 
 When(/^they enter their profile details$/) do

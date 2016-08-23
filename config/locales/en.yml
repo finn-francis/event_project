@@ -45,6 +45,7 @@ en:
       attending: Attending
       comments: Comments
       block_user: Ban
+      invited: Invited
   comment:
     new: Leave a comment
     submit: Post Comment

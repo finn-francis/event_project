@@ -22,12 +22,7 @@ end
 
 Then(/^they should see the attending users$/) do
   profile_one = @user_one.profile
-  profile_two = @user_two.profile
-
   expect(page).to have_content(profile_one.name)
   expect(page).to have_css('img', profile_one.image_url)
-
-  expect(page).to have_content(profile_two.name)
-  expect(page).to have_css('img', profile_two.image_url)
 end
 

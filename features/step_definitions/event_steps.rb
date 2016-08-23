@@ -13,6 +13,18 @@ Given(/^they are signed in$/) do
   click_button 'Log in'
 end
 
+Given(/^there are some invites to the event$/) do
+  @user_one.invites.create!(
+    event: @event_one,
+    invited: @user_two
+  )
+
+  @user_one.invites.create!(
+    event: @event_one,
+    invited: @user_three
+  )
+end
+
 Given(/^they are on the new event page$/) do
   visit new_event_path
 end
@@ -36,5 +48,14 @@ end
 Then(/^they should be redirected to the event page$/) do
   expect(page).to have_content(@event_title)
   expect(page).to have_content(@event_description)
+end
+
+Then(/^they should see a list of all the invited users$/) do
+  within('#invited') do
+    expect(page).to have_content(@user_three.profile.name)
+    expect(page).to have_css('img', @user_one.profile.name)
+    expect(page).to have_content(@user_three.profile.name)
+    expect(page).to have_css('img', @user_two.profile.name)
+  end
 end
 

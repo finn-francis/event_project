@@ -7,16 +7,27 @@
 
   <div id="map" class="col-md-8" data-latitude="<%= @event.latitude %>" data-longitude="<%= @event.longitude %>" data-user-id="<%= @current_user.id %>"></div>
 
-  <div id="attending" class="col-md-4 m-t">
-    <div class="col-md-12 dft-border bg-white">
-      <h3><%= t('event.show.attending') %></h3>
-      <hr>
-      <div class="row">
-        <%= render partial: "attendee", collection: @attendees %>
+  <div class="col-md-4">
+    <div id="attending">
+      <div class="col-md-12 dft-border bg-white m-t">
+        <h3><%= t('event.show.attending') %></h3>
+        <hr>
+        <div class="row">
+          <%= render partial: "user_thumbnail", collection: @attendees %>
+        </div>
+      </div>
+    </div>
+
+    <div id="invited">
+      <div class="col-md-12 dft-border bg-white m-t">
+        <h3><%= t('event.show.invited') %></h3>
+        <hr>
+        <div class="row">
+          <%= render partial: "user_thumbnail", collection: @invited %>
+        </div>
       </div>
     </div>
   </div>
-
   <div class="col-md-8">
     <div id="event-info" class="m-t">
       <div class="col-md-12 dft-border bg-white">

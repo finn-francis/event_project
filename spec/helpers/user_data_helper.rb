@@ -23,13 +23,15 @@ module UserData
       @profile_two = @user_two.profile
       @profile_three = @user_three.profile
 
-      @profile_one.update(
-        first_name: Faker::Name.first_name,
-        last_name: Faker::Name.last_name,
-        description: Faker::Lorem.paragraph,
-        country: "United Kingdom",
-        city: "Hoddesdon"
-      )
+      [@profile_one, @profile_two, @profile_three].each do |profile|
+        profile.update(
+          first_name: Faker::Name.first_name,
+          last_name: Faker::Name.last_name,
+          description: Faker::Lorem.paragraph,
+          country: "United Kingdom",
+          city: "Hoddesdon"
+        )
+      end
     end
   end
 
