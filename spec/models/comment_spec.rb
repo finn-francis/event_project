@@ -10,7 +10,7 @@ RSpec.describe Comment, type: :model do
 
     it 'should be available from both the user and the event' do
       expect(@event_one.comments).to include(@comment_one)
-      expect(@user_one.comments).to include(@comment_one)
+      expect(@user_two.comments).to include(@comment_one)
     end
   end
 end

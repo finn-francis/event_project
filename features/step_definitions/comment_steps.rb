@@ -7,7 +7,7 @@ end
 
 When(/^they press delete$/) do
   accept_confirm do
-    click_button 'x'
+    first('.comment-button').click
   end
 end
 

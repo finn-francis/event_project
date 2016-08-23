@@ -2,8 +2,9 @@ module UserData
 
   def self.extended(object)
     object.instance_exec do
+      @admin_role = Role.create!(name: 'admin')
 
-      3.times do
+      4.times do
         User.create!(
           email: Faker::Internet.email,
           password: 'password',
@@ -14,6 +15,9 @@ module UserData
       @user_one = User.all[0]
       @user_two = User.all[1]
       @user_three = User.all[2]
+      @admin = User.all[3]
+
+      @admin.roles << @admin_role
 
       @profile_one = @user_one.profile
       @profile_two = @user_two.profile

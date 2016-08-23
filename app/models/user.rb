@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :received_requests, class_name: "User", through: :friend_requested, source: :sender
   has_many :friendships
   has_many :friends, class_name: "User", through: :friendships, source: :friend
+  has_many :user_roles
+  has_many :roles, through: :user_roles
   has_many :comments
 
   validates :email, presence: true
@@ -25,6 +27,11 @@ class User < ActiveRecord::Base
   validates :password, presence: true
 
   after_create :create_profile
+
+  def admin?
+    admin = Role.find_by(name: "admin")
+    self.roles.include? admin
+  end
 
   def friends_with?(user)
     self.friends.include?(user)
