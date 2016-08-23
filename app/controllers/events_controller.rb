@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def show
     @attendees = @event.attending.distinct
+    authorize!(:read, @event)
   end
 
   private

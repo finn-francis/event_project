@@ -18,8 +18,13 @@
   </div>
 
   <div id='<%= comment.id %>-comment' class='col-md-8'>
-    <% if @current_user == comment.user || can?(:destroy, comment) %>
-      <ul class='list-unstyled pull-right'>
+    <ul class='list-unstyled pull-right'>
+      <% if can?(:manage, @event) %>
+        <li>
+          <%= button_to t('event.show.block_user'), { controller: 'users', action: 'update', id: comment.user.id, event_id: @event.id }, method: :put, class: 'btn btn-default btn-sm btn-danger' %>
+        </li>
+      <% end %>
+      <% if @current_user == comment.user || can?(:destroy, comment) %>
         <li>
           <%= button_to 'x', { controller: 'comments', action: 'destroy',
             id: comment.id, event_id: @event.id }, remote: true, method: :delete,
@@ -31,8 +36,8 @@
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </button>
         </li>
-      </ul>
-    <% end %>
+      <% end %>
+    </ul>
     <p><%= comment.body %></p>
   </div>
 
