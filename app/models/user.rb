@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
     self.roles.include? admin
   end
 
+  def moderator?(event)
+    event.moderators.include? self
+  end
+
   def friends_with?(user)
     self.friends.include?(user)
   end

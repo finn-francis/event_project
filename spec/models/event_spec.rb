@@ -8,7 +8,7 @@ RSpec.describe Event, type: :model do
 
   describe 'A user creates an event' do
     it 'should create a new event' do
-      expect(Event.count).to eq(2)
+      expect(Event.count).to eq(3)
       expect(@user_one.events.first).to eq(@event_one)
       expect(@event_one.valid?).to eq(true)
     end
@@ -16,6 +16,11 @@ RSpec.describe Event, type: :model do
     it 'should contain the users id as "organiser_id"' do
       expect(@event_one.organiser_id).to eq(@user_one.id)
     end
+
+    it 'should give the organiser moderator rights on creation' do
+      expect(@event_one.moderators).to include(@user_one)
+    end
+
   end
 
   describe "geocoding" do

@@ -10,11 +10,19 @@ module EventData
           postcode: "EN11 8BX"
         )
       end
+
       @event_one = Event.all[0]
       @event_two = Event.all[1]
       @event_three = Event.all[2]
 
-      @hello = "hello"
+      @event_four = @user_two.events.create!(
+        title: Faker::Internet.name,
+        description: Faker::Lorem.paragraph,
+        country: "United Kingdom",
+        city: "Hoddesdon",
+        postcode: "EN11 8BX"
+      )
+
       @comment_one = @event_one.comments.create!(
         user: @user_one,
         body: Faker::Lorem.paragraph
@@ -23,6 +31,11 @@ module EventData
       @comment_two = @event_two.comments.create!(
         user: @user_three,
         body: "Comment two"
+      )
+
+      @comment_three = @event_four.comments.create!(
+        user: @user_two,
+        body: Faker::Lorem.paragraph
       )
     end
   end

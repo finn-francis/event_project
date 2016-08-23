@@ -8,6 +8,8 @@ class Event < ActiveRecord::Base
   has_many :comments
   has_many :event_tags
   has_many :tags, through: :event_tags
+  has_many :event_roles
+  has_many :moderators, class_name: "User", through: :event_roles, source: :user
 
   accepts_nested_attributes_for :comments
 
@@ -21,6 +23,7 @@ class Event < ActiveRecord::Base
   geocoded_by :geocoder_input
   after_validation :geocode
   after_create :create_attendance
+  after_create :set_mod
 
   scope :sorted, proc { order(created_at: :desc).uniq }
 
@@ -37,6 +40,15 @@ class Event < ActiveRecord::Base
 
   def create_attendance
     self.attendances.create(user_id: self.organiser.id, event_id: self.id)
+  end
+
+  def set_mod
+    role = Role.find_or_create_by name: 'moderator'
+    EventRole.create(
+      event: self,
+      user: self.organiser,
+      role: role
+    )
   end
 
 end
