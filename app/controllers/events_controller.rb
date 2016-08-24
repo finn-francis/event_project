@@ -17,6 +17,10 @@ class EventsController < ApplicationController
     authorize!(:read, @event)
   end
 
+  def index
+    @events = Event.all
+  end
+
   private
 
   def event_params

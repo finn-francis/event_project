@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   resources :invites, only: [:update]
   resources :tags, only: [:index]
 
-  root 'pages#home'
+  root 'events#index'
 end

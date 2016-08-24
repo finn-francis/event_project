@@ -1,6 +1,5 @@
 Given(/^the admin is signed in$/) do
   visit root_path
-  click_button "Options"
   click_link "Log In"
   fill_in "Email", with: @admin.email
   fill_in "Password", with: "password"

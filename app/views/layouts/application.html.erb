@@ -14,24 +14,28 @@
 <body class='bg-light-grey'>
   <div id='main-header' class='container-fluid'>
     <header class='row bg-header-green'>
-      <h1 class='col-md-6 h2'><%= link_to t('layout.title'), root_path %></h1>
+      <h1 class='col-md-6 h3 m-t-10'><%= link_to t('layout.title'), root_path %></h1>
       <nav class='col-md-6' id='main-nav'>
         <ul class='list-inline pull-right'>
-          <li class='list-inline-item h3'>
-            <%= link_to t('layout.home'), root_path %>
+          <li class='list-inline-item h4'>
+            <% if @current_user %>
+              <%= link_to t('layout.home'), "/users/#{@current_user.id}/profile" %>
+            <% else %>
+              <%= link_to t('layout.home'), root_path %>
+            <% end %>
           </li>
 
-          <li class='list-inline-item h3'>
-            <%= t('layout.events') %>
+          <li class='list-inline-item h4'>
+            <%= link_to t('layout.events'), root_path %>
           </li>
 
-          <li class='list-inline-item dropdown h3'>
-            <button class='dropdown-toggle' type='button' id='dropdownMenu1' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-              <%= t('layout.options') %>
-            </button>
+          <% if @current_user %>
+            <li class='list-inline-item dropdown h4'>
+              <button class='dropdown-toggle' type='button' id='dropdownMenu1' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                <%= t('layout.options') %>
+              </button>
 
-            <ul class='dropdown-menu' aria-labelledby='dropdownMenu1'>
-              <% if @current_user %>
+              <ul class='dropdown-menu' aria-labelledby='dropdownMenu1'>
                 <li>
                   <%= link_to t('layout.profile'), ['/users/', @current_user.id, '/profile'].join, id: 'profile-link' %></a>
                 </li>
@@ -53,19 +57,19 @@
                 <li>
                   <%= link_to t('layout.friend_requests'), user_friend_requests_path(@current_user) %>
                 </li>
-              <% end %>
 
-              <hr class='m-v-0'>
+                <hr class='m-v-0'>
 
-              <li>
-                <% if @current_user %>
+                <li>
                   <%= link_to t('layout.log_out'), destroy_user_session_path, method: 'delete' %></a>
-                <% else %>
-                  <%= link_to t('layout.log_in'), new_user_session_path %>
-                  <%= link_to t('layout.sign_up'), new_user_registration_path %>
-                <% end %>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </li>
+          <% end %>
+          <li class="list-inline-item h4">
+            <% unless @current_user %>
+              <%= link_to t('layout.log_in'), new_user_session_path %>
+            <% end %>
           </li>
         </ul>
       </nav>

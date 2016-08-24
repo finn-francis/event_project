@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     redirect_to main_app.root_url, :alert => exception.message
   end
 
+  def after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || stored_location_for(resource) || "/users/#{resource.id}/profile"
+  end
+
   def get_current_user
     @current_user = current_user if current_user
   end
