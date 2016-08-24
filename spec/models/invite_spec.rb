@@ -32,11 +32,10 @@ RSpec.describe Invite, type: :model do
   describe "A User accepts an invite" do
     before do
       @invite_one.update accepted: true
-      @attendance = @user_one.attendances.first
     end
 
     it "should create a new attendance for the user" do
-      expect(@attendance.event).to eq(@event_one)
+      expect(@user_one.attending).to include(@event_one)
     end
 
   end

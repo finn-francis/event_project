@@ -13,3 +13,4 @@ Feature: Event
     Given there are some invites to the event
     When they are on the event page
     Then they should see a list of all the invited users
+

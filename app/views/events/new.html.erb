@@ -31,6 +31,26 @@
       <%= f.text_field :postcode, class: 'form-control', required: true %>
     </div>
 
+    <div class="form-group">
+      <%= f.label [t('event.new.start_date'), ':'].join, class: 'h4' %>
+      <%= f.date_select :start_date, { minute_step: 15 } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label [t('event.new.start_time'), ':'].join, class: 'h4' %>
+      <%= f.time_select :start_time, { minute_step: 15 } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label [t('event.new.end_date'), ':'].join, class: 'h4' %>
+      <%= f.date_select :end_date, { minute_step: 15 } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label [t('event.new.end_time'), ':'].join, class: 'h4' %>
+      <%= f.time_select :end_time, { minute_step: 15 } %>
+    </div>
+
     <div class="form-group submit">
       <%= f.submit t('event.new.create'), class: 'btn btn-default' %>
     </div>

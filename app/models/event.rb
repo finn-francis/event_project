@@ -32,6 +32,14 @@ class Event < ActiveRecord::Base
     return address == " " ? false : address
   end
 
+  def starting
+    "#{self.start_date.to_s} #{self.start_time.to_s(:short)[-5..-1]}"
+  end
+
+  def ending
+    "#{self.end_date.to_s} #{self.end_time.to_s(:short)[-5..-1]}"
+  end
+
   def moderators
     moderator = Role.find_or_create_by(name: "moderator")
     moderators = find_user_roles(moderator)

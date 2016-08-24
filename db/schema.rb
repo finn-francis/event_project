@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823131434) do
+ActiveRecord::Schema.define(version: 20160824093040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,10 @@ ActiveRecord::Schema.define(version: 20160823131434) do
     t.decimal  "longitude"
     t.string   "postcode"
     t.string   "image_url",    default: "/assets/default-event.jpg"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
   create_table "friend_requests", force: :cascade do |t|

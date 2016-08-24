@@ -41,11 +41,17 @@ en:
       country: Country
       city: City/Town
       postcode: Postcode
+      start_time: Start time
+      end_time: End time
+      start_date: Start date
+      end_date: End date
     show:
       attending: Attending
       comments: Comments
       block_user: Ban
       invited: Invited
+      start: Starting at
+      end: Ending at
   comment:
     new: Leave a comment
     submit: Post Comment
