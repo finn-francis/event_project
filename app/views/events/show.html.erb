@@ -1,4 +1,4 @@
-<div id="show-event" class="row bg-light-grey">
+<div id="show-event" class="row bg-light-grey" data-event-id="<%= @event.id %>">
   <div id="event-image-div" class="col-md-4">
     <div id="event-image">
       <img src="<%= @event.image_url %>">
@@ -20,7 +20,8 @@
 
     <div id="invited">
       <div class="col-md-12 dft-border bg-white m-t">
-        <h3><%= t('event.show.invited') %></h3>
+        <h3 class="inline"><%= t('event.show.invited') %></h3>
+        <button id="invite-button" class="btn btn-default btn-sm btn-info pull-right m-t-15"><%= t('event.show.invite') %></button>
         <hr>
         <div class="row">
           <%= render partial: "user_thumbnail", collection: @invited %>
@@ -93,6 +94,9 @@
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap">
   </script>
-  <script scr="/assets/tag.js">setTag();</script>
+  <script>
+    setTag();
+    setInviteClick();
+  </script>
 </div>
 

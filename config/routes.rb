@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :profile, only: [:edit, :update, :show]
     resources :friend_requests, only: [:update, :index]
     resource :friend_request, only: [:create]
+    resources :friendships, only: [:index]
     get :invites, only: [:index]
   end
 
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resource :comments, only: [:destroy, :edit, :update]
-  resources :invites, only: [:update]
+  resources :invites, only: [:create, :update]
   resources :tags, only: [:index]
 
   root 'events#index'

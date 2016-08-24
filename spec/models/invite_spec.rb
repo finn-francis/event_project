@@ -37,7 +37,18 @@ RSpec.describe Invite, type: :model do
     it "should create a new attendance for the user" do
       expect(@user_one.attending).to include(@event_one)
     end
-
   end
 
+  describe "A duplicate invite is made" do
+    before do
+      @bad_invite = @user_two.invites.new(
+        event: @event_one,
+        invited: @user_one
+      )
+    end
+
+    it "should not allow duplicate invites" do
+      expect(@bad_invite.valid?).to eq(false)
+    end
+  end
 end

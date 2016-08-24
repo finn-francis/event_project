@@ -8,7 +8,7 @@ RSpec.describe Event, type: :model do
 
   describe 'A user creates an event' do
     it 'should create a new event' do
-      expect(Event.count).to eq(3)
+      expect(Event.count).to eq(4)
       expect(@user_one.events.first).to eq(@event_one)
       expect(@event_one.valid?).to eq(true)
     end

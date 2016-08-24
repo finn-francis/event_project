@@ -1,0 +1,9 @@
+<div id='<%= "invite-user-#{user.id}" %>' class="col-md-4 invite-profile-info">
+    <%= link_to ['/users/', user.id, '/profile'].join, id: [user.id, '-profile'].join do %>
+      <div class="profile-thumbnail">
+        <img src='<%= user.profile.image_url %>'>
+      </div>
+      <small><%= user.profile.name %></small>
+    <% end %>
+    <%= button_to t('event.show.invite'), invites_path(invite: { invited_id: user.id, inviter_id: @current_user.id, event_id: @event.id, accepted: nil }), class: 'btn btn-sm btn-info invite-button', remote: true %>
+  </div>

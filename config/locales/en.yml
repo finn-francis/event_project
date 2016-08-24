@@ -52,6 +52,8 @@ en:
       invited: Invited
       start: Starting at
       end: Ending at
+      invite: Invite
+      pick_friend: Pick a friend
   comment:
     new: Leave a comment
     submit: Post Comment

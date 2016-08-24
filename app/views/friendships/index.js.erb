@@ -1,0 +1,5 @@
+var userFriends = $("<div class=\"col-md-12 dft-border bg-white m-t\"></div>");
+var content = $("<h3><%= t('event.show.pick_friend') %></h3><hr><div class=\"row\"><%= j(render @friends) %></div>");
+
+userFriends.html(content);
+

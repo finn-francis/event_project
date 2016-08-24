@@ -7,6 +7,7 @@ class Invite < ActiveRecord::Base
   validates :invited_id, presence: true
   validates :inviter_id, presence: true
   validates :event_id, presence: true
+  validates :event_id, uniqueness: { scope: [:invited_id, :inviter_id] }
 
   after_save :create_attendance
 
