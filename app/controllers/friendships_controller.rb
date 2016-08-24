@@ -17,6 +17,8 @@ class FriendshipsController < ApplicationController
 
   def find_friends
     @friends = @user.friends - @event.attending
+    @friends = @friends - @event.invited
+    @friends = @friends - @event.banned_users
   end
 
   def find_event
