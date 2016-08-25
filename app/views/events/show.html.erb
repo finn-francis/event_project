@@ -21,7 +21,9 @@
     <div id="invited">
       <div class="col-md-12 dft-border bg-white m-t">
         <h3 class="inline"><%= t('event.show.invited') %></h3>
-        <button id="invite-button" class="btn btn-default btn-sm btn-info pull-right m-t-15"><%= t('event.show.invite') %></button>
+        <% if @current_user %>
+          <button id="invite-button" class="btn btn-default btn-sm btn-info pull-right m-t-15"><%= t('event.show.invite') %></button>
+        <% end %>
         <hr>
         <div class="row">
           <%= render partial: "user_thumbnail", collection: @invited %>

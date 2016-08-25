@@ -37,7 +37,7 @@ class EventsController < ApplicationController
   end
 
   def find_invited
-    @invited = @event.invited
+    @invited = @event.invited - @event.attending.distinct
   end
 
 end
