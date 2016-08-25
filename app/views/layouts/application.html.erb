@@ -44,11 +44,13 @@
                   <%= link_to t('layout.edit_profile'), ['/users/', @current_user.id, '/profile/edit'].join %></a>
                 </li>
 
+                <hr class='m-v-5'>
+
                 <li>
                   <%= link_to t('layout.new_event'), new_event_path %>
                 </li>
 
-                <hr class='m-v-0'>
+                <hr class='m-v-5'>
 
                 <li>
                   <%= link_to t('layout.invite'), ['/users/', @current_user.id, '/invites'].join %>
@@ -58,7 +60,7 @@
                   <%= link_to t('layout.friend_requests'), user_friend_requests_path(@current_user) %>
                 </li>
 
-                <hr class='m-v-0'>
+                <hr class='m-v-5'>
 
                 <li>
                   <%= link_to t('layout.log_out'), destroy_user_session_path, method: 'delete' %></a>
