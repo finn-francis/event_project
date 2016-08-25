@@ -64,7 +64,6 @@ end
 Then(/^they should be redirected to the event page$/) do
   expect(page).to have_content(@event_title)
   expect(page).to have_content(@event_description)
-  expect(page).to have_css('img', @event_url)
   expect(page).to have_content(@start_date)
   expect(page).to have_content(@end_date)
 end
@@ -72,9 +71,7 @@ end
 Then(/^they should see a list of all the invited users$/) do
   within('#invited') do
     expect(page).to have_content(@user_three.profile.name)
-    expect(page).to have_css('img', @user_one.profile.name)
     expect(page).to have_content(@user_three.profile.name)
-    expect(page).to have_css('img', @user_two.profile.name)
   end
 end
 

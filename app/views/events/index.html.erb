@@ -2,6 +2,6 @@
   <div class="col-md-12 bg-white m-t p-b dft-border">
     <h3><%= t('profile.events') %></h3>
     <%= render @events %>
+    <%= will_paginate @events, class: 'pull-right' %>
   </div>
-  <%= will_paginate @events %>
 </section>

@@ -8,27 +8,31 @@
   padding: 0 $padding-dft 0 0;
 }
 
-#event-image {
-  position: relative;
+.event-thumbnail {
+  width: 6em;
+  height: 6em;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  margin: auto;
+}
+
+.big-event-thumbnail {
+  width: 20em;
+  height: 20em;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  margin: auto;
+}
+
+.event-image {
   width: 100%;
   height: 30em;
   overflow: hidden;
+  background-size: cover;
   background-position: center center;
-
-  img {
-    height: 30em;
-  }
-}
-
-.profile-thumbnail {
-  width: 100%;
-  height: 5em;
-  overflow: hidden;
-  background-position: center center;
-
-  img {
-    height: 100%;
-  }
+  margin: auto;
 }
 
 .comment-hr {

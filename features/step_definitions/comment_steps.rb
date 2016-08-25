@@ -36,6 +36,5 @@ end
 Then(/^their comment is posted$/) do
   expect(page).to have_content(@comment)
   expect(page).to have_content(@user_one.profile.name)
-  expect(page).to have_css('img', @user_one.profile.image_url)
 end
 

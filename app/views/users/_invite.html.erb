@@ -1,18 +1,16 @@
   <li class="row">
     <div><hr><div>
-    <div class="col-md-4">
+    <div class="col-md-4 event-profile-info">
       <%= link_to user_profile_path(invite.inviter) do %>
-        <div class="profile-thumbnail">
-          <img src="<%= invite.inviter.profile.image_url %>" alt="<%= invite.inviter.profile.name %>">
-        </div>
+        <div class="profile-thumbnail" style="background-image: url(<%= invite.inviter.profile.image_url %>)"></div>
         <p><%= invite.inviter.profile.name %></p>
       <% end %>
     </div>
 
     <div class="col-md-6">
       <%= link_to invite.event do %>
-        <div class="event-thumbnail p-l-0 col-md-4">
-          <img src="<%= invite.event.image_url %>" alt="<%= invite.event.title %> image">
+        <div class="p-l-0 col-md-4">
+          <div class="event-thumbnail" style="background-image: url(<%= invite.event.image_url %>)"></div>
         </div>
         <p><%= invite.event.title %></p>
         <p><%= truncate(invite.event.description, length: 180) %></p>

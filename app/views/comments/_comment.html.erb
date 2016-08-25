@@ -9,7 +9,7 @@
     <%= link_to ['/users/', comment.user.id, '/profile'].join, id: [comment.user.id, '-comment-profile'].join do %>
       <div class='row'>
         <div class='comment-thumbnail col-md-6'>
-          <img src='<%= profile.image_url %>' alt='<%= profile.name %>'>
+          <div class="profile-thumbnail" style="background-image: url(<%= profile.image_url %>)"></div>
         </div>
 
         <div class='comment-info col-md-6'>

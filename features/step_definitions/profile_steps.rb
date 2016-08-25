@@ -41,7 +41,6 @@ Then(/^they see all of their profile details on the page$/) do
   expect(page).to have_content(@description)
   expect(page).to have_content(@country)
   expect(page).to have_content(@city)
-  expect(page).to have_css('img', @user_url)
 end
 
 Then(/^they should be redirectd to the users profile$/) do
@@ -49,13 +48,11 @@ Then(/^they should be redirectd to the users profile$/) do
   expect(page).to have_content(profile.name)
   expect(page).to have_content(profile.location)
   expect(page).to have_content(profile.description)
-  expect(page).to have_css('img', profile.image_url)
 end
 
 Then(/^they should see the events that they are attending$/) do
   expect(page).to have_content(@event_one.title)
   expect(page).to have_content(@event_one.description)
   expect(page).to have_content(@event_one.location)
-  expect(page).to have_css('img', @event_one.image_url)
 end
 

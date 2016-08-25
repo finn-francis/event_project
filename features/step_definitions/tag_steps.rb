@@ -32,6 +32,5 @@ Then(/^they see a list of all the similarly tagged events$/) do
   expect(page).to have_content(@event_one.title)
   expect(page).to have_content(@event_one.description)
   expect(page).to have_content(@event_one.location)
-  expect(page).to have_css('img', @event_one.image_url)
 end
 

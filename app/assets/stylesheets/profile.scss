@@ -2,15 +2,13 @@
   padding: 10px;
 }
 
-#profile-image {
-  position: relative;
-  width: 100%;
+.profile-thumbnail {
+  width: 6em;
+  height: 6em;
   overflow: hidden;
+  background-size: cover;
   background-position: center center;
-
-  img {
-    width: 100%;
-  }
+  margin:auto;
 }
 
 .event-thumbnail {

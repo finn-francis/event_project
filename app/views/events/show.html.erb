@@ -1,7 +1,6 @@
 <div id="show-event" class="row bg-light-grey" data-event-id="<%= @event.id %>">
   <div id="event-image-div" class="col-md-4">
-    <div id="event-image">
-      <img src="<%= @event.image_url %>" alt='<%= @event.title %>'>
+    <div class="event-image" style="background-image: url(<%= @event.image_url %>)">
     </div>
   </div>
 

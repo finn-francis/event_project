@@ -17,6 +17,5 @@ Then(/^they should see a list of their friends$/) do
   profile = @user_two.profile
   my_profile = @user_one.profile
   expect(page).to have_content(profile.name)
-  expect(page).to have_css('img', profile.image_url)
 end
 
