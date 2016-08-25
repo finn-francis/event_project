@@ -45,6 +45,9 @@
             <small><%= "#{t('event.show.end')}: #{@event.ending}" %></small><br>
           <% end %>
           <small><%= @event.location %></small>
+          <% if @current_user %>
+            <small><%= @event.distance @current_user %> miles away</small>
+          <% end %>
         </div>
 
         <hr>

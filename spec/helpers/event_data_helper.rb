@@ -30,8 +30,8 @@ module EventData
         title: Faker::Internet.name,
         description: Faker::Lorem.paragraph,
         country: "United Kingdom",
-        city: "Hoddesdon",
-        postcode: "EN11 8BX"
+        city: "Presteigne",
+        postcode: "LD8 2HE"
       )
 
       @comment_one = @event_one.comments.create!(

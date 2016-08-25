@@ -32,6 +32,11 @@ class Event < ActiveRecord::Base
     return address == " " ? false : address
   end
 
+  def distance(user)
+    profile = user.profile
+    return profile.geocoded? ? self.distance_to(profile).floor : ""
+  end
+
   def starting
     "#{self.start_date.to_s} #{self.start_time.to_s(:short)[-5..-1]}"
   end

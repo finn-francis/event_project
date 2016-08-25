@@ -16,9 +16,9 @@ RSpec.describe Profile, type: :model do
 
   describe "geocoding" do
     it "should caluculate lat and long on save" do
+      expect(@profile_one.geocoded?).to eq(true)
       expect(@profile_one.latitude).to be_within(0.000001).of 51.7600069999999
       expect(@profile_one.longitude).to be_within(0.000001).of -0.015042
     end
   end
-
 end
