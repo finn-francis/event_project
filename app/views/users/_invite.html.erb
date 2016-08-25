@@ -3,7 +3,7 @@
     <div class="col-md-4">
       <%= link_to user_profile_path(invite.inviter) do %>
         <div class="profile-thumbnail">
-          <img src="<%= invite.inviter.profile.image_url %>">
+          <img src="<%= invite.inviter.profile.image_url %>" alt="<%= invite.inviter.profile.name %>">
         </div>
         <p><%= invite.inviter.profile.name %></p>
       <% end %>

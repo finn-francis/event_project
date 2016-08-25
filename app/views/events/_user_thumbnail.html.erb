@@ -1,7 +1,7 @@
 <div class="col-md-4 event-profile-info no-wrap">
   <%= link_to ['/users/', user_thumbnail.id, '/profile'].join, id: [user_thumbnail.id, '-profile'].join do %>
     <div class="profile-thumbnail">
-      <img src='<%= user_thumbnail.profile.image_url %>'>
+      <img src='<%= user_thumbnail.profile.image_url %>' alt='<%= user_thumbnail.profile.name %>'>
     </div>
     <small><%= user_thumbnail.profile.name %></small>
   <% end %>

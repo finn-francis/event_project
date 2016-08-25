@@ -3,7 +3,7 @@
   <div class="col-md-6 no-wrap">
     <%= link_to user_profile_path(friend_request.sender) do %>
       <div class="profile-thumbnail">
-        <img src="<%= friend_request.sender.profile.image_url %>">
+        <img src="<%= friend_request.sender.profile.image_url %>" alt='<%= friend_request.sender.profile.name %>'>
       </div>
       <p><%= friend_request.sender.profile.name %></p>
     <% end %>
