@@ -27,6 +27,8 @@ class Event < ActiveRecord::Base
 
   scope :sorted, proc { order(created_at: :desc).uniq }
 
+  self.per_page = 10
+
   def location
     address = [self.country, self.city].join(" ")
     return address == " " ? false : address

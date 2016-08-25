@@ -18,6 +18,7 @@ gem 'figaro'
 gem 'cancancan', '~> 1.10'
 gem "rails-erd"
 gem 'faker'
+gem 'will_paginate', '~> 3.1.0'
 
 group :production do
   gem 'rails_12factor'

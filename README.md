@@ -21,17 +21,17 @@
 +----------------------+-------+-------+---------+---------+-----+-------+
 | Controllers          |   331 |   254 |      10 |      49 |   4 |     3 |
 | Helpers              |     4 |     4 |       0 |       0 |   0 |     0 |
-| Models               |   343 |   271 |      14 |      25 |   1 |     8 |
+| Models               |   345 |   272 |      14 |      25 |   1 |     8 |
 | Mailers              |     0 |     0 |       0 |       0 |   0 |     0 |
 | Javascripts          |   108 |    80 |       0 |      14 |   0 |     3 |
 | Libraries            |     0 |     0 |       0 |       0 |   0 |     0 |
-| Controller specs     |    32 |    25 |       0 |       0 |   0 |     0 |
+| Controller specs     |    60 |    48 |       0 |       0 |   0 |     0 |
 | Model specs          |   292 |   243 |       0 |       0 |   0 |     0 |
 | Cucumber features    |   471 |   348 |       0 |       0 |   0 |     0 |
 +----------------------+-------+-------+---------+---------+-----+-------+
-| Total                |  1581 |  1225 |      24 |      88 |   3 |    11 |
+| Total                |  1611 |  1249 |      24 |      88 |   3 |    12 |
 +----------------------+-------+-------+---------+---------+-----+-------+
-  Code LOC: 609     Test LOC: 616     Code to Test Ratio: 1:1.0
+  Code LOC: 610     Test LOC: 639     Code to Test Ratio: 1:1.0
 </pre>
 
 <p>Coverage: 94%</p>
@@ -45,4 +45,5 @@
   <li>omniauth-facebook</li>
   <li>figaro</li>
   <li>sass-rails</li>
+  <li>will-paginate</li>
 </ul>

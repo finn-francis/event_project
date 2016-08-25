@@ -18,7 +18,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = Event.page(params[:page]).order('start_date DESC')
   end
 
   private
@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   end
 
   def find_comments
-    @comments = @event.comments.sorted
+    @comments = @event.comments.order('created_at').page(params[:page])
   end
 
   def find_invited

@@ -6,5 +6,5 @@ class Comment < ActiveRecord::Base
   validates :event_id, presence: true
   validates :body, presence: true, length: { minimum: 1 }
 
-  scope :sorted, proc { order(:created_at) }
+  self.per_page = 20
 end

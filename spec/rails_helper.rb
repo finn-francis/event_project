@@ -8,6 +8,7 @@ require 'rspec/rails'
 require './spec/helpers/user_data_helper'
 require './spec/helpers/event_data_helper'
 require './spec/helpers/comment_data_helper'
+require './spec/helpers/pagination_data_helper'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

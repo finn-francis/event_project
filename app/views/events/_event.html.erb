@@ -1,23 +1,23 @@
-  <article class="row">
-    <div class="col-md-12">
-      <hr>
-    </div>
+<article class="row">
+  <div class="col-md-12">
+    <hr>
+  </div>
 
+  <%= link_to event do %>
+    <div class="event-thumbnail col-md-4">
+      <img src="<%= event.image_url %>" alt="<%= event.title %> image">
+    </div>
+  <% end %>
+
+  <div class="event-info col-md-8">
     <%= link_to event do %>
-      <div class="event-thumbnail col-md-4">
-        <img src="<%= event.image_url %>" alt="<%= event.title %> image">
-      </div>
+      <h4><%= event.title %></h4>
+      <small><%= event.location %></small>
+      <p><%= event.description %></p>
+      <hr class="short-hr">
     <% end %>
-
-    <div class="event-info col-md-8">
-      <%= link_to event do %>
-        <h4><%= event.title %></h4>
-        <small><%= event.location %></small>
-        <p><%= event.description %></p>
-        <hr class="short-hr">
-      <% end %>
-      <ul class="list-inline tag-list">
-        <%= render event.tags %>
-      </ul>
-    </div>
-  </article>
+    <ul class="list-inline tag-list">
+      <%= render event.tags %>
+    </ul>
+  </div>
+</article>
