@@ -12,7 +12,7 @@ When(/^they press delete$/) do
 end
 
 When(/^they click the edit comment button$/) do
-  click_button [Comment.first.id, '-comment-edit'].join
+  click_button [@user_comment.id, '-comment-edit'].join
 end
 
 When(/^they write a comment in the comment box$/) do
@@ -22,7 +22,7 @@ end
 
 When(/^they edit their comment$/) do
   @new_comment = Faker::Lorem.paragraph
-  fill_in 'edit_comment_body', with: @new_comment
+  fill_in "#{@user_comment.id}-edit_comment_body", with: @new_comment
 end
 
 Then(/^the comment should be changed$/) do

@@ -1,4 +1,4 @@
-<div id='<%= comment.id %>-comment-div'class='row'>
+<div id='<%= comment.id %>-comment-div' class='row'>
   <div class='col-md-4 comment-user-info'>
     <% profile = comment.user.profile %>
     <%= link_to ['/users/', comment.user.id, '/profile'].join, id: [comment.user.id, '-comment-profile'].join do %>
@@ -42,7 +42,7 @@
   </div>
 
   <%= form_for comment, url: comments_path(id: comment.id), html: { class: 'col-md-7 hidden-form', id: "#{comment.id}-edit-box"}, remote: true do |f| %>
-    <%= f.text_area :body, class: 'form-control', id: 'edit_comment_body' %>
+    <%= f.text_area :body, class: 'form-control', id: "#{comment.id}-edit_comment_body" %>
     <%= f.submit t('comment.edit.save'), class: 'btn btn-sm btn-default pull-right' %>
   <% end %>
 
