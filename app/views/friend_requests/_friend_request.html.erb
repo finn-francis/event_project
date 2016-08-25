@@ -1,11 +1,12 @@
 <li class="row">
-  <div class="col-md-6">
+  <div><hr></div>
+  <div class="col-md-6 no-wrap">
     <%= link_to user_profile_path(friend_request.sender) do %>
-    <div class="profile-thumbnail">
-      <img src="<%= friend_request.sender.profile.image_url %>">
-    </div>
-    <p><%= friend_request.sender.profile.name %></p>
-  <% end %>
+      <div class="profile-thumbnail">
+        <img src="<%= friend_request.sender.profile.image_url %>">
+      </div>
+      <p><%= friend_request.sender.profile.name %></p>
+    <% end %>
   </div>
 
   <div class="col-md-6">

@@ -1,22 +1,28 @@
-<li class="row">
-  <div class="col-md-4">
-    <p>
-      <%= invite.inviter.email %>
-      invited you to
-      <%= invite.event.title %>
-    </p>
-  </div>
+  <li class="row">
+    <div><hr><div>
+    <div class="col-md-4">
+      <%= link_to user_profile_path(invite.inviter) do %>
+        <div class="profile-thumbnail">
+          <img src="<%= invite.inviter.profile.image_url %>">
+        </div>
+        <p><%= invite.inviter.profile.name %></p>
+      <% end %>
+    </div>
 
-  <div class="col-md-6">
-    <p><%= invite.event.title %></p>
-    <p><%= invite.event.description %></p>
-  </div>
+    <div class="col-md-6">
+      <%= link_to invite.event do %>
+        <div class="event-thumbnail p-l-0 col-md-4">
+          <img src="<%= invite.event.image_url %>" alt="<%= invite.event.title %> image">
+        </div>
+        <p><%= invite.event.title %></p>
+        <p><%= truncate(invite.event.description, length: 180) %></p>
+      <% end %>
+    </div>
 
-  <div class="col-md-2">
-    <%= form_for invite do |f| %>
-      <%= f.button t('buttons.accept'), value: 'true' %>
-      <%= f.button t('buttons.decline'), value: 'false' %>
-    <% end %>
-  </div>
-</li>
-
+    <div class="col-md-2">
+      <%= form_for invite do |f| %>
+        <%= f.button t('buttons.accept'), value: 'true', class: "btn btn-sm btn-success btn-block" %>
+        <%= f.button t('buttons.decline'), value: 'false', class: "btn btn-sm btn-danger btn-block" %>
+      <% end %>
+    </div>
+  </li>

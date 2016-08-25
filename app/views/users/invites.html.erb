@@ -1,4 +1,6 @@
-<h2 class="h4">Your Invites</h2>
-<ul id="user-invite-list">
-  <%= render partial: "invite", collection: @invited %>
-</ul>
+<div id="user-event-invites" class="col-md-6 col-md-offset-1 bg-white dft-border dft-padding">
+  <h2 class="h4">Your Invites</h2>
+  <ul id="user-invite-list" class="list-unstyled">
+    <%= render partial: "invite", collection: @invited %>
+  </ul>
+</div>
