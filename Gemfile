@@ -17,6 +17,7 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'cancancan', '~> 1.10'
 gem "rails-erd"
+gem 'faker'
 
 group :production do
   gem 'rails_12factor'
@@ -25,7 +26,6 @@ end
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.5'
-  gem 'faker'
 end
 
 group :development do

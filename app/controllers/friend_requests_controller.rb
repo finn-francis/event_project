@@ -14,7 +14,7 @@ class FriendRequestsController < ApplicationController
 
   def update
     @request.update accepted: button_value
-    redirect_to user_friend_requests_path(current_user)
+    redirect_to user_profile_path(@request.sender)
   end
 
   private

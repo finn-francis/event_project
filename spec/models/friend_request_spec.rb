@@ -21,7 +21,6 @@ RSpec.describe FriendRequest, type: :model do
 
     describe "accepting the request" do
       before do
-        @friend_count = Friendship.count
         @request.update accepted: true
       end
 
@@ -30,7 +29,6 @@ RSpec.describe FriendRequest, type: :model do
         expect(@user_two.friends).to include(@user_one)
         expect(@user_two.friends.length).to eq(1)
         expect(@user_two.friends.length).to eq(1)
-        expect(Friendship.count).to eq(@friend_count + 1)
       end
 
       it "should make each user friends" do

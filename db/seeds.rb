@@ -1,4 +1,5 @@
 Attendance.destroy_all
+Tag.destroy_all
 Invite.destroy_all
 Friendship.destroy_all
 Comment.destroy_all
@@ -7,7 +8,6 @@ FriendRequest.destroy_all
 UserRole.destroy_all
 EventRole.destroy_all
 EventTag.destroy_all
-Event.destroy_all
 Profile.destroy_all
 User.destroy_all
 
@@ -354,7 +354,7 @@ event_three = me.events.create!(
 )
 
 event_four = me.events.create!(
-  title: 'Another Event',
+  title: 'Shoes Convention',
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porta finibus arcu, a venenatis libero porta sit amet. Suspendisse vel lectus lacinia, rhoncus turpis id, dapibus libero. Duis vitae faucibus lacus. Phasellus lacus dolor, fermentum nec sem ullamcorper, gravida sodales lectus. Etiam ullamcorper augue ac lectus accumsan, ac lacinia ante facilisis. Donec consequat metus sed porttitor euismod. Aenean sed vehicula ex, nec vestibulum dolor. Nulla facilisi. Sed malesuada elit mi, eget congue velit ultrices elementum. Curabitur est ante, sagittis at est porta, efficitur scelerisque risus. Phasellus eu mauris sem. Quisque dui felis, efficitur non odio vitae, congue convallis lorem.',
   country: 'United Kingdom',
   city: 'Presteigne',
@@ -371,7 +371,17 @@ event_four = me.events.create!(
 first_half_events = [event_one, event_two]
 last_half_events = [event_three, event_four]
 
+
+# ==============================  Roles  =================================
+
+
+admin = Role.find_or_create_by!(name: "admin")
+
+me.roles << admin
+
+
 # ==============================  Attending ================================
+
 
 first_half_events.each do |event|
   last_half_users.each do |user|
@@ -385,7 +395,35 @@ last_half_events.each do |event|
   end
 end
 
+event_one.ban_user(bob_marley)
+
+# ==============================  Invites  ===================================
+
+first_users_length = first_half_users.length
+last_users_length = last_half_users.length
+
+last_half_events.each do |event|
+  first_half_users[0..(first_users_length / 2)].each_with_index do |user, index|
+    Invite.create!(
+      inviter_id: user.id,
+      invited_id: last_half_users[index].id,
+      event_id: event.id
+    )
+  end
+end
+
+first_half_events.each do |event|
+  last_half_users[0..(last_users_length / 2)].each_with_index do |user, index|
+    Invite.create!(
+      inviter_id: user.id,
+      invited_id: first_half_users[index].id,
+      event_id: event.id
+    )
+  end
+end
+
 # ==============================  Tags  =======================================
+
 
 ruby = Tag.create!(name: "Ruby")
 javascript = Tag.create!(name: "javascript")
@@ -411,7 +449,9 @@ last_half_events.each do |event|
   end
 end
 
+
 # ==============================  Friends ==========================================
+
 
 first_half_users.each do |user|
   last_half_users.each do |friend|
@@ -419,5 +459,27 @@ first_half_users.each do |user|
   end
 end
 
+vincent_van_gogh.friend_requests.create!(
+  receiver: me
+)
+
 
 # ===============================  Comments  =======================================
+
+first_half_users.each do |user|
+  first_half_events.each do |event|
+    event.comments.create!(
+      user: user,
+      body: Faker::Lorem.paragraph
+    )
+  end
+end
+
+last_half_users.each do |user|
+  last_half_events.each do |event|
+    event.comments.create!(
+      user: user,
+      body: Faker::Lorem.paragraph
+    )
+  end
+end
