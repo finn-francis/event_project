@@ -1,7 +1,6 @@
 Attendance.destroy_all
 Tag.destroy_all
 Invite.destroy_all
-Friendship.destroy_all
 Comment.destroy_all
 Event.destroy_all
 FriendRequest.destroy_all
@@ -455,7 +454,10 @@ end
 
 first_half_users.each do |user|
   last_half_users.each do |friend|
-    user.friends << friend
+    user.friend_requests.create!(
+      receiver: friend,
+      accepted: true
+    )
   end
 end
 
