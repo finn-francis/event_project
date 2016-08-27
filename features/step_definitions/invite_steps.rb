@@ -12,7 +12,10 @@ Given(/^they have a friend who is not attending$/) do
     password_confirmation: 'password'
   )
 
-  @user_one.friends << @new_friend
+  @user_one.friend_requests.create!(
+    receiver: @new_friend,
+    accepted: true
+  )
 end
 
 When(/^they click on the invite$/) do

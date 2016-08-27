@@ -1,8 +1,8 @@
 class Invite < ActiveRecord::Base
   belongs_to :event
 
-  belongs_to :invited, class_name: 'User'
-  belongs_to :inviter, class_name: 'User'
+  belongs_to :inviter, class_name: 'User', inverse_of: :invites
+  belongs_to :invited, class_name: 'User', inverse_of: :invited_to
 
   validates :invited_id, presence: true
   validates :inviter_id, presence: true

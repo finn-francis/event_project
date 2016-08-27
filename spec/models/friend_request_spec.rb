@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe FriendRequest, type: :model do
-  describe 'create' do
-    before do
-      extend UserData
-      @request = @user_one.friend_requests.create!(
-        receiver: @user_two
-      )
-    end
+  before do
+    extend UserData
+    @request = @user_one.friend_requests.create!(
+      receiver: @user_two
+    )
+  end
 
+  describe 'create' do
     it "should have a sender and a receiver" do
       expect(@request.sender).to eq(@user_one)
       expect(@request.receiver).to eq(@user_two)
@@ -34,6 +34,26 @@ RSpec.describe FriendRequest, type: :model do
       it "should make each user friends" do
         expect(@user_one.friends_with?(@user_two)).to eq(true)
         expect(@user_two.friends_with?(@user_one)).to eq(true)
+      end
+
+      describe "friend list" do
+        before do
+          @original_user_one_count = @user_one.friends.count
+          @original_user_two_count = @user_two.friends.count
+          @original_user_three_count = @user_three.friends.count
+
+          @request_two = FriendRequest.create!(
+            sender: @user_one,
+            receiver: @user_three
+          )
+
+          @request_two.update accepted: true
+        end
+
+        it "each user should have a seperate friends list" do
+          expect(@user_one.friends.count).to eq(@original_user_one_count + 1)
+          expect(@user_three.friends.length).to eq(@original_user_three_count + 1)
+        end
       end
     end
   end

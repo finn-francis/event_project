@@ -8,16 +8,14 @@ class User < ActiveRecord::Base
   has_many :events, foreign_key: :organiser_id, inverse_of: :organiser
   has_many :attendances
   has_many :attending, class_name: 'Event', through: :attendances, source: :event
-  has_many :invites, class_name: 'Invite', foreign_key: 'inviter_id'
-  has_many :invited, class_name: 'User', through: :invites
-  has_many :invited_to, class_name: 'Invite', foreign_key: 'invited_id'
+  has_many :invites, class_name: 'Invite', foreign_key: 'inviter_id', inverse_of: :inviter
+  has_many :invited_to, class_name: 'Invite', foreign_key: 'invited_id', inverse_of: :invited
   has_many :invited, class_name: 'User', through: :invited_to
   has_many :friend_requests, foreign_key: :sender_id
   has_many :sent_requests, class_name: "User", through: :friend_requests, source: :receiver
-  has_many :friend_requested, class_name: "FriendRequest", foreign_key: :receiver_id
+  has_many :friend_requested, class_name: "FriendRequest", foreign_key: :receiver_id, inverse_of: :receiver
   has_many :received_requests, class_name: "User", through: :friend_requested, source: :sender
-  has_many :friendships
-  has_many :friends, class_name: "User", through: :friendships, source: :friend
+  has_many :friend_requester, class_name: "FriendRequest", foreign_key: :sender_id, inverse_of: :sender
   has_many :user_roles
   has_many :roles, through: :user_roles
   has_many :event_roles
@@ -32,6 +30,10 @@ class User < ActiveRecord::Base
   def admin?
     admin = Role.find_or_create_by(name: "admin")
     self.roles.include? admin
+  end
+
+  def friends
+    self.friend_requested.select{ |fr| fr.accepted }.map(&:sender) + self.friend_requester.select { |fr| fr.accepted }.map(&:receiver)
   end
 
   def friends_with?(user)
